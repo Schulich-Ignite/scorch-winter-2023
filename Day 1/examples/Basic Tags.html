@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page title</title>
+
+    <!--This is where stylesheets and style tags should go along with metadata-->
+    <style>
+        div{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-family:sans-serif;
+        }
+    </style>
+
+</head>
+
+
+<body style="background-color: #141414;color:#f0f0f0;text-align: center;">
+
+    <!--This is where your HTML content goes-->
+    <div id="header">
+        <h1>HTML Cheat Sheet</h1>
+    </div>   
+    
+    <div id="heading-tags">
+        <h2>Heading tags</h2>
+        <h1>&lt;h1&gt;H1&lt;/h1&gt;</h1>
+        <h2>&lt;h2&gt;H2&lt;/h2&gt;</h2>
+        <h3>&lt;h3&gt;H3&lt;/h3&gt;</h3>
+        <h4>&lt;h4&gt;H4&lt;/h4&gt;</h4>
+    </div>
+
+    <div id="p-a-tags">
+        <h2>Paragraph & anchor tags</h2>
+        <p>&lt;p&gt; Paragraph Tags &lt;/p&gt;</p>
+        <p>&lt;a href="google.ca"&gt; <a href="google.ca" style="color:aqua">Hello world</a>&lt;/a&gt;</p>
+    </div>
+
+    <div id="lists">
+        <h2>Lists</h2>
+        <h3>Unordered Lists</h3>
+        <p>
+            &lt;ul&gt; <br>
+                &emsp;&lt;li&gt; List item 1 &lt;/li&gt;<br>
+                &emsp;&lt;li&gt; List item 2 &lt;/li&gt;<br>
+            &lt;/ul&gt;
+        </p>
+
+        <h4>Result</h4>
+        <ul style="display:inline-block">
+            <li>List item 1</li>
+            <li>List item 2</li>
+        </ul>
+
+        <h3>Ordered Lists</h3>
+        <p>
+            &lt;ol&gt; <br>
+                &emsp;&lt;li&gt; List item 1 &lt;/li&gt;<br>
+                &emsp;&lt;li&gt; List item 2 &lt;/li&gt;<br>
+            &lt;/ol&gt;
+        </p>
+
+        <h4>Result</h4>
+        <ol style="display:inline-block">
+            <li>List item 1</li>
+            <li>List item 2</li>
+        </ol>
+    </div>
+
+    <div id="divs">
+        <h2>Dividers</h2>
+        <p>div tags can be used to house multiple elements together, this makes it easier to see the structure of your content, and will be useful when we talk about CSS later
+        </p>
+        <br>
+        &lt;div&gt; Your other tags go in here &lt;/div&gt;
+    </div>
+
+    <div id="images">
+        <h2>Images</h2>
+
+        &lt;img src="https://schulichignite.com/img/logos/ignite.svg" width="150px"&gt;
+
+        <h4>Result</h4>
+        <img src="https://schulichignite.com/img/logos/ignite.svg" width="150px">
+    </div>
+
+    <div id="Extras">
+        <h2>Some extra tips and tricks</h2>
+
+        <h2>Creating a table of contetns</h2>
+        <p>If you have an id attribute on a div, you can use it as the href attribute of an anchor tag to take people to that spot in the page. <br>
+        
+        i.e. &lt;div id="heading-tags"&gt; &lt;/div&gt; could be linked to with &lt;a href="#heading-tags"&gt; <a href="#lists" style="color:aqua">Heading Tags</a>&lt;/a&gt;<br>
+    
+        Several of these can be combined together to create a table of contents, such as:</p>
+        <div id="TOC">
+            <h3>Table of contents</h3>
+            <ul style="display:inline-block;text-align: left;">
+                <li><a style="color:aqua;" href="#heading-tags">Heading Tags</a></li>
+                <li><a style="color:aqua;" href="#p-a-tags">Paragraph & anchor tags</a></li>
+                <li><a style="color:aqua;" href="#lists">Lists</a></li>
+                <li><a style="color:aqua;" href="#divs">Dividers</a></li>
+                <li><a style="color:aqua;" href="#iamges">Images</a></li>
+                <li><a style="color:aqua;" href="#extras">Extras</a></li>
+            </ul>
+        </div>
+
+        <h2>Open link in a new tab</h2>
+        You can force an anchor tag to open the link in a new tab by setting the target attribute to _blank <br>
+        &lt;a href="https://google.ca" target="_blank"&gt; <a style="color:aqua;" href="https://google.ca" target="_blank">link</a> &lt;/a&gt;
+    </div>
+
+</body>
+
+    <!--This is where your javascript goes-->
+
+</html>

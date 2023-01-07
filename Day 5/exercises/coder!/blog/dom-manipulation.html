@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>How to Modify DOM elements | Blog</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Highlightjs-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <style>
+            .img-fluid{
+                border-radius: 5%;
+            }
+        </style>
+    </head><body>
+
+        <!-- Start of Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">		
+                <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+                Coder!  
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Navbar-->    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="../img/dom-manipulation.png" class="d-block mx-lg-auto img-fluid" alt="Dom Manipulation" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">How to Modify DOM elements</h1>
+                <p class="lead">Updating a pages' elements dynamically after the page has loaded</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="../blog.html">Go back to blog posts</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End of header--><!-- Start of content -->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Blog content goes Below--><p>You may have heard of the DOM before, basically any pages in a browser have some objects to tell you about the state of the page, and the browser more broadly. The <b>document object </b>contains information about the <b>html document/page</b>&nbsp;that is currently loaded (elements, css etc), and the <b>window</b>&nbsp;<b>object </b>tells you more about the <b>browser window</b>&nbsp;(resolution, url etc.).</p><p>With these two objects we can make changes to the page that the user is seeing including:</p><ul><li>Adding, removing, and updating elements</li><li>Sending the user to a different URL</li><li>Change the behavior of the app based on screen size</li><li>Make the page fullscreen</li><li>etc.</li></ul><p>So, let's look at some of these functionalities!</p><h4>Document Object</h4><p>We're going to look at the basics of just editing the HTML of an element that exists on the page. Let's take the example HTML:</p>
+<pre>
+    <code class="language-html">&lt;div id="result" class="result-box"&gt;
+    &lt;p&gt; There is no result &lt;/p&gt;
+&lt;/div&gt;</code>
+</pre>        <p>Our task will be to replace the text inside the div with: "1+1 is 2". To do that we first need to find our div element. There are <a href="https://www.w3schools.com/js/js_htmldom_document.asp">a few different methods</a> for finding elements, but the one we will use this time is <code class="inline-code">document.getElementById()</code></p>
+<pre>
+    <code class="language-js">elem = document.getElementByID("result")</code>
+</pre>        <p>This will get an <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">Element Object</a> for the div element with all of its current state. We can actually see it's state by playing around with the attributes:</p>
+<pre>
+    <code class="language-js">elem.tagName // returns "Div"
+elem.className // returns result-box
+elem.innerHTML // returns "<p> There is no result </p>"
+elem.innerText // returns "There is no result"
+elem.style // returns CSSStyleDeclaration object that you can modify</code>
+</pre>        <p>So now that we can get the attributes all we have to do to modify the page is change the values. In our case we can just change the innerHTML to match the output we want:</p>
+<pre>
+    <code class="language-js">elem.innerHTML = "<p>1+1 is 2</p>"</code>
+</pre>        <h4>Window Object</h4><p>This object has a ton of information about the browser, for today we're just going to look at using it to redirect people to a different URL. To do this we need to access an attribute that is its own object called Location. </p>
+<pre>
+    <code class="language-js">window.location // Location Object</code>
+</pre>        <p>The Location object then has an attribute called href that is our URL</p>
+<pre>
+    <code class="language-js">window.location.href // A string representing the URL</code>
+</pre>        <p>Then just like with the document object, changing this attribute will update the page, so we can send people to <a href="https://schulichignite.com/">https://schulichignite.com/</a> using</p>
+<pre>
+    <code class="language-js">window.location.href = "https://schulichignite.com/"</code>
+</pre>        
+        <!-- Blog content goes Above-->
+    </div>
+</div>
+</div>
+</article>
+<!-- End of content-->
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Highlight js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>

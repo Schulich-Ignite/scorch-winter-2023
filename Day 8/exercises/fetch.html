@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: .75rem;
+          }
+          
+          .icon-link > .bi {
+            margin-top: .125rem;
+            margin-left: .125rem;
+            fill: currentcolor;
+            transition: transform .25s ease-in-out;
+          }
+          .icon-link:hover > .bi {
+            transform: translate(.25rem);
+          }
+          
+          .icon-square {
+            width: 3rem;
+            height: 3rem;
+            border-radius: .75rem;
+          }
+          
+          .text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+          .text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+          .text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+          
+          .card-cover {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+          }
+          
+          .feature-icon-small {
+            width: 3rem;
+            height: 3rem;
+          }
+          small{
+            outline: 1em;
+          }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;">
+
+    <div class="px-4 pt-5 text-center border-bottom bg-dark text-light">
+        <h1 class="display-4 fw-bold">Our company</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Something, something... we care about integrity, now buy our products</p>
+        </div>
+        <div class="overflow-hidden" style="max-height: 50vh;">
+          <div class="container px-5">
+            <img src="https://images.unsplash.com/photo-1616587224026-668840f26916?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+          </div>
+        </div>
+    </div>
+
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="pb-2 text-center border-bottom">Here's what we sell</h2>
+    
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">A little of this</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto"></li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                    <small>$25</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1625886390251-01af1ea39853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">And that</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto"></li>
+                  <li class="d-flex align-items-center">
+                    <small>$5</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">And those</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto"></li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                    <small>$400</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row justify-content-center align-items-center g-2" id="team">
+        <div class="col-md-12 text-center"><h2>Our team</h2>
+        <h4>We occassionally work hard!</h4>
+        <hr style="max-width:40%; margin: 0 auto;">
+    </div>
+    </div>
+    
+
+
+<script>
+    async function getData(){
+        URLs = ["https://kieranwood.ca/session-8-api/json/users/alex.json",
+        "https://kieranwood.ca/session-8-api/json/users/megan.json",
+        "https://kieranwood.ca/session-8-api/json/users/jake.json"
+        ]
+        user_data = []
+        // Loop through URL's
+        for (let i = 0; i < URLs.length; i++) {
+            URLs[i] // Current URL
+
+            //TODO: Fetch each of the URL's
+            // NOTE: Make sure to await
+        }
+        return user_data
+    }
+    async function displayData(){
+        users = await getData()
+        
+        for (let index = 0; index < users.length; index++) {
+          const user = users[index];
+          // TODO: Add attributes to html below where they should be
+          document.getElementById("team").innerHTML+= `<!-- Start of card-->
+          <div class="col-md-4">
+              <div class="card mb-3">
+                  <div class="row g-0">
+                      <div class="col-md-4">
+                      <img src="TODO: IMAGE HERE" style="height: 25vh;width: 90%;object-fit: cover;" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                          <div class="card-body">
+                              <h5 class="card-title">TODO: NAME HERE</h5>
+                              <p class="card-text">TODO: DESCRIPTION HERE</p>
+                              <p class="card-text"><small class="text-muted">TODO: ROLE HERE</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- End of card-->
+          
+          `
+      }
+    }
+
+    displayData() // Call the function so it runs
+
+  </script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

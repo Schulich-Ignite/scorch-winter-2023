@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - {{ config["name"] }}</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=207bb713b2a1fa32547b9c788c11580f">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css?h=81582bdb254a94e4464424087c6479a8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="index.html">{{ config["name"] }}</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-work.html">My Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page lanidng-page">
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                <div class="avatar" style="background-image: url(&quot;assets/img/Alan_Turing_Aged_16.jpg?h=8304dae856036f88ff212823c73e985a&quot;);"></div>
+                <div class="about-me">
+                    <p>Hello! I am <strong>{{ config["name"] }}</strong>. I'm a mathematician who helped develop the underlying technology you're using to see this page!</p><a class="btn btn-outline-primary" role="button" href="my-work.html">MY WORK</a>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block photography">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="my-work.html" target="_blank"><img class="img-fluid image" src="assets/img/photo-1572435555646-7ad9a149ad91.webp?h=ceb1cc002bfcb24a149770f9b3d603c0"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="my-work.html" target="_blank"><img class="img-fluid image" src="assets/img/photo-1591696331111-ef9586a5b17a.webp?h=3b19466bb5a6a0668f30cd94e72431d9"></a></div>
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="my-work.html" target="_blank"><img class="img-fluid image" src="assets/img/photo-1596495577886-d920f1fb7238.webp?h=b66321fc601034a774ef0e87da4e1727"></a></div>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block call-to-action border-bottom"></section>
+        <section class="portfolio-block skills">
+            <div class="container">
+                <div class="heading">
+                    <h2>My Skills</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-android-add"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Mathematics</h3>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-laptop"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Computation</h3>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card special-skill-item border-0">
+                            <div class="card-header bg-transparent border-0"><i class="icon ion-locked"></i></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Cryptography</h3>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="portfolio-block website gradient">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-5 offset-lg-1 text">
+                    <h3><a href="https://kieranwood.ca/Coder" style="text-decoration: none;color: var(--bs-gray-100);">Coder!</a></h3>
+                    <p>Ran out of things to add here, so here's the project we did last time. Looks pretty cool huh. Good on you for getting this far in the program, you're putting in some good effort bud, keep at it!</p>
+                </div>
+                <div class="col-md-12 col-lg-5">
+                    <div class="portfolio-laptop-mockup">
+                        <div class="screen">
+                            <div class="screen-content" style="background-image: url(&quot;assets/img/tech/msedge_BkwQq5Ez1N.gif?h=38508505b6fa04274bdb071eb2d789e3&quot;);"></div>
+                        </div>
+                        <div class="keyboard"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="links"></div>
+            <div class="social-icons"><a href="index.html"><i class="icon ion-social-facebook"></i></a><a href="index.html"><i class="icon ion-social-instagram-outline"></i></a><a href="index.html"><i class="icon ion-social-twitter"></i></a></div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=5488c86a1260428f0c13c0f8fb06bf6a"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="assets/js/theme.js?h=aeddb9c3ce5d77b8278c91c07acf30ad"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+
+{% for member in team %} <!--Lets you iterate through each page -->
+            <!-- {{ member[0] }} --> <!--Metadata access -->
+            <!-- {{ member[1] | safe }} --> <!--content access -->
+<!-- Start of card -->
+<div class="col-lg-4 text-center">
+    <img src="TODO: image here" alt="" width="172px" height="172px" style="border-radius: 50%;object-fit:cover; object-position: top;">
+    <h2 class="fw-normal"><!-- TODO: Name & role here --></h2>
+    <p><!-- TODO: Description here--></p>
+</div>
+<!-- end of card -->
+{% endfor %}

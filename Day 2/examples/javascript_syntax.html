@@ -1,0 +1,82 @@
+
+<!-- How to Use JS slide example -->
+<script>
+    // This is a comment
+    
+    /*
+    This is a multi-
+    -line comment
+    */
+    
+    // Code goes here
+</script>
+
+<!-- Javascript Basics - Syntax slide example -->
+<script>
+        greeting="Hello";
+    
+        function greet(name){
+            return `${greeting} ${name}`;
+        } // end of greet()
+    
+        console.log(greet("Kieran")); //print Hello Kieran
+</script>
+    
+<script>
+    // Data types
+    string = "hi";
+    integer = 1;
+    float = 1.0;
+    array = [1,2,3];
+    JSON = {"name":"kieran","age":23};
+</script>
+
+<script>
+    //Conversions
+    string_to_int = parseInt(string);
+    string_to_float = parseFloat(string);
+</script>
+
+<script>
+    //Loops
+    array = [1,2,3,4];
+
+    // Foreach (python style)
+    for (const element of array) {
+        // ...use `element`...
+    }
+
+    // C-style
+    for (let index = 0; index < array.length; ++index) {
+        const element = array[index];
+        // ...use `element`...
+    }
+
+    // While loop
+    while (i < 10) {
+        i++;
+    }
+</script>
+
+<script>
+    // Conditionals
+    if (condition){
+        // Do things in here
+    }
+
+    // Careful of == (same 'value') vs === (same 'value' & type)
+    x= 5; // Set x to 5
+
+    x == 5;   // true
+    x == "5"; // true
+
+    x === 5;   // true
+    x === "5"; // false
+</script>
+
+<script>
+    // Function
+    function functionName(param1, param2="default"){
+        return [param1, param2]
+    }
+</script>

@@ -1,0 +1,153 @@
+<!-- Copy CSS within style tags and add above HTML -->
+<!-- HTML -->
+<div class = "parent">
+    This is the parent element
+    <div class = "child1">Child1</div>
+    <div class = "child2">Child2</div>
+    <div class = "child3">Child3</div>
+</div>
+
+<!-- CSS -->
+<!-- fixed -->
+<style>
+    body{
+        /*Extra height allows for scrolling*/
+        height:150vh;
+    }
+    div{
+        padding: 1em;
+        font-size: 20px;
+    }
+    .parent{
+        background-color: rgb(200, 200, 0);
+    }
+    .child1{
+        position: fixed;
+        background-color: rgb(200, 150, 100);
+    }
+    .child2{
+        background-color: rgb(200, 100, 200);
+    }
+    .child3{
+        background-color: rgb(0, 200, 200);
+    }
+</style>
+
+<!-- relative 'left' set-->
+<style>
+    div{
+        padding: 1em;
+        font-size: 20px;
+    }
+    .parent{
+        background-color: rgb(200, 200, 0)
+    }
+    .child1{
+        position: relative;
+        left: 20px;
+        background-color: rgb(200, 150, 100);
+    }
+    .child2{
+        background-color: rgb(200, 100, 200);
+    }
+    .child3{
+        background-color: rgb(0, 200, 200);
+    }
+</style>
+
+<!-- relative 'top' set -->
+<style>
+    div{
+        padding: 1em;
+        font-size: 20px;
+    }
+    .parent{
+        background-color: rgb(200, 200, 0)
+    }
+    .child1{
+        position: relative;
+        top: 20px;
+        background-color: rgb(200, 150, 100);
+    }
+    .child2{
+        background-color: rgb(200, 100, 200);
+    }
+    .child3{
+        background-color: rgb(0, 200, 200);
+    }
+</style>
+
+<!-- absolute parent position static -->
+<style>
+    div{
+        padding: 1em;
+        font-size: 20px;
+    }
+    .parent{
+        position: static;
+        margin: 10px;
+        background-color: rgb(200, 200, 0);
+    }
+    .child1{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: rgb(200, 150, 100);
+    }
+    .child2{
+        background-color: rgb(200, 100, 200);
+    }
+    .child3{
+        background-color: rgb(0, 200, 200);
+    }
+</style>
+
+<!-- absolute parent position relative -->
+<style>
+    div{
+        padding: 1em;
+        font-size: 20px;
+    }
+    .parent{
+        position: relative;
+        margin: 10px;
+        background-color: rgb(200, 200, 0);
+    }
+    .child1{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: rgb(200, 150, 100);
+    }
+    .child2{
+        background-color: rgb(200, 100, 200);
+    }
+    .child3{
+        background-color: rgb(0, 200, 200);
+    }
+</style>
+
+<!-- sticky -->
+<style>
+    body{
+        /*Extra height allows for scrolling*/
+        height:150vh;
+    }
+    div{
+        padding: 1em;
+        font-size: 20px;
+    }
+    .parent{
+        background-color: rgb(200, 200, 0);
+    }
+    .child1{
+        position: sticky;
+        background-color: rgb(200, 150, 100);
+    }
+    .child2{
+        background-color: rgb(200, 100, 200);
+    }
+    .child3{
+        background-color: rgb(0, 200, 200);
+    }
+</style>

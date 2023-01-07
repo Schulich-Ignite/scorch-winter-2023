@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our team</title>
+    <!--Import bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Snippets taken from https://getbootstrap.com/docs/5.2/examples/ -->
+    <style>
+    /* Part of https://getbootstrap.com/docs/5.2/examples/product */
+    .product-device {
+        position: absolute;
+        right: 10%;
+        bottom: -30%;
+        width: 300px;
+        height: 540px;
+        background-color: #333;
+        border-radius: 21px;
+        transform: rotate(30deg);
+    }
+
+    .product-device::before {
+        position: absolute;
+        top: 10%;
+        right: 10px;
+        bottom: 10%;
+        left: 10px;
+        content: "";
+        background-color: rgba(255, 255, 255, .1);
+        border-radius: 5px;
+    }
+
+    .product-device-2 {
+        top: -25%;
+        right: auto;
+        bottom: 0;
+        left: 5%;
+        background-color: #e5e5e5;
+    }
+    #spacer{
+        height: 40vh;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index.html" class="nav-link" >Home</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">About us</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Contact</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="container">
+    <!--Heading-->
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" height="450px">
+            <h1 class="display-5 fw-bold">Who are we?</h1>
+            <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">We're a group of innovators dedicated to making th world a better place with disruptive technologies and solutions!</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            </div>
+            </div>
+        </div>
+    <!-- End of heading-->
+    </div>
+
+    <!-- Our team section-->
+    <div class="container">
+        <div class="row">
+            <!-- Inject content from /sections/team.jinja -->
+            {{ team_html | safe}}
+
+        </div>
+    </div>
+    <!-- End of our Team section-->
+    <div id="spacer"></div>
+    <div class="container">
+    <!-- Call to Action-->
+        <div class="position-relative p-3 p-md-5 m-md-3 text-center ">
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <h1 class="display-4 fw-normal">Give us a call!</h1>
+                <p class="lead fw-normal">We're available whenever you want to talk about how you can start being an industry leader!</p>
+                <a class="btn btn-outline-secondary" href="index.html">Call us</a>
+            </div>
+            <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+        </div>
+    <!-- End of Call to Action-->
+    </div>
+
+
+
+    <!--Import bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        (function () {
+            'use strict'
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        })()
+    </script>
+</body>
+</html>

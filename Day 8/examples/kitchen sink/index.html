@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - API Demo</title>
+    <meta name="description" content="A demo of using various API's">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css">
+    <style>
+        iframe{
+            border-radius:1em;
+            min-height: 40vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        code{
+            white-space: pre-wrap;
+            text-align: left;
+        }
+        .divider{
+            max-width: 100%;
+            margin: 25px auto 0;
+            border-width: 5px;
+            border-color: #f0f0f0;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="56">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="#page-top">API Demo</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler float-end" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto"></ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background: url('assets/img/bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-7 my-auto">
+                    <div class="mx-auto header-content">
+                        <h1 class="mb-5"><span style="color: rgb(232, 234, 237);">The graph was pulled from an entirely different HTML document!</span><br></h1>
+                    </div>
+                </div>
+                <div class="col-lg-5 my-auto"><iframe src="html/injectable/index.html"></iframe></div>
+            </div>
+        </div>
+    </header>
+    <section class="text-center bg-primary download" id="download">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <h2 class="section-heading">Here's a HTML embed</h2>
+
+    <iframe src="html/embedded/index.html" style="height:90vh; width:100%"></iframe>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="text-center section-heading">
+                <h2>Parsed info</h2>
+                <p class="text-muted">The below code is pulled from parsing the content of an HTML page</p>
+                <hr>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" id="parsed"></div>
+                <div class="col-md-6" id="frame">
+                    <h3>Data taken from this source document</h3>
+                    <iframe src="html/parsed/index.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="text-center bg-dark download text-white" id="download">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-heading">JSON</h2>
+                    <p></p>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="section-heading">/users</h2>
+                    <div id="users-json">
+
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <h2 class="section-heading">/animals</h2>
+                    <div id="animal-json">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>©&nbsp;API Demo 2022. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/new-age.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Used to fetch the Parsed example-->
+    <script>
+
+        fetch('html/parsed/index.html').then( (response)=> 
+            // The API call was successful!
+            response.text()
+        ).then( (html) =>{
+            // Take the HTML string and make a new HTML document
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(html, 'text/html');
+
+            // Use the document and parse it like we normally do in JS
+            list_items = doc.getElementsByTagName("li")
+            resultHTML = "<h3>This information was taken by parsing HTML</h3>"
+            for (let i = 0; i < list_items.length; i++) {
+                console.log(list_items[i])
+                resultHTML+= `<li>${list_items[i].innerHTML}</li>`
+            }
+
+            // Once the new HTML is built, replace the innerHTML of the section we want
+            document.getElementById("parsed").innerHTML = resultHTML
+
+        }).catch(function (err) {
+            // There was an error
+            console.warn('Something went wrong.', err);
+        });
+    </script>
+
+    <script>
+        function loadUsers(){
+            usersURL = ["json/users/jake.json",
+            "json/users/megan.json",
+            "json/users/alex.json",
+            ]
+            usersHTML = ""
+            for (let i = 0; i < usersURL.length; i++) {
+                fetch(usersURL[i])
+                .then((response)=>response.json())
+                .then((user) =>{
+                    document.getElementById("users-json").innerHTML += `
+                    <h4>${usersURL[i]}</h4>
+                    <pre>
+                    <code class="language-json">${JSON.stringify(user, null, 2)}</code>
+                    </pre>
+                    <h4>Output HTML</h4>
+                    <!-- Start of card -->
+                        <div class="col-lg-12 text-center">
+                            <img src="${user.image}" alt="" width="172px" height="172px" style="border-radius: 50%;object-fit:cover; object-position: top;">
+                    
+                            <h2 class="fw-normal">${user.name} | ${user.role}</h2>
+                            <p>${user.description}</p>
+                        </div>
+                    <!-- end of card -->
+                    <h4>Code</h4>
+                    <pre>
+                        <code class="language-html">
+&lt;div class="col-lg-12 text-center"&gt;
+    &lt;img src="${user.image}" alt="" width="172px" height="172px" style="border-radius: 50%;object-fit:cover; object-position: top;"&gt;
+
+    &lt;h2 class="fw-normal">${user.name} | ${user.role}&lt;/h2&gt;
+    &lt;p&gt;${user.description}&lt;/p&gt;
+&lt;/div&gt;
+                        </code>
+                    </pre>
+                    <hr class="divider">
+                    `
+                    hljs.highlightAll();
+                })
+            }
+    }
+        
+
+    function loadAnimals(){
+        usersURL = ["json/animals/binturong.json",
+        "json/animals/horseshoe_crab.json"
+        ]
+        usersHTML = ""
+        for (let i = 0; i < usersURL.length; i++) {
+            fetch(usersURL[i])
+            .then((response)=>response.json())
+            .then((animal) =>{
+                document.getElementById("animal-json").innerHTML += `
+                <h4>${usersURL[i]}</h4>
+                <pre>
+                <code class="language-json">${JSON.stringify(animal, null, 2)}</code>
+                </pre>
+                <h4>Output HTML</h4>
+                <!-- Start of card -->
+
+                <div class="card col-lg-12">
+                    <img class="card-img-top" src="${animal.image}" alt="Card image cap">
+                    <div class="card-body text-dark">
+                      <h5 class="card-title">${animal.name}</h5>
+                      <p class="card-text">${animal.description}</p>
+                      <a href="${animal.wiki}" target="_blank" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <!-- end of card -->
+                <h4>Code</h4>
+                <pre>
+                    <code class="language-html">
+&lt;div class="card col-lg-12"&gt;
+    &lt;img class="card-img-top" src="${animal.image}" alt="Card image cap"&gt;
+    &lt;div class="card-body text-dark"&gt;
+        &lt;h5 class="card-title"&gt;${animal.name}&lt;/h5&gt;
+        &lt;p class="card-text"&gt;${animal.description}&lt;/p&gt;
+        &lt;a href="${animal.wiki}" target="_blank" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+                <hr class="divider">
+                `
+                hljs.highlightAll();
+            })
+        }
+}
+    loadUsers()
+    loadAnimals()
+    </script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

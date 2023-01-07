@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker HighlightJS Exercise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+</head>
+<body>
+    <pre>
+        <code class="language-dockerfile">
+FROM python:3.8-slim
+RUN pip install --no-cache-dir ezcv
+CMD ezcv init kieran \
+    && cd kieran\
+    && ezcv -p
+        </code>
+    </pre>
+</body>
+<!-- Import highlightjs-->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</html>

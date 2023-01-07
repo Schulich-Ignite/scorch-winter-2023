@@ -1,0 +1,56 @@
+/* Heavily Modified from https://codepen.io/vskand/pen/MWKKKYK */
+
+/*  Needed for filters */
+
+.hide { /* You can play with the seconds to change the "animation" */
+    animation: hide .3s ease 0s 1 normal forwards;
+    transform-origin: center;
+}
+.show { /* You can play with the seconds to change the "animation" */
+    animation: show .3s ease 0s 1 normal forwards;    
+    transform-origin: center;
+}
+@keyframes hide {
+    0%{
+        transform: scale(1);        
+    }
+    100% {
+        transform: scale(0);        
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+}
+@keyframes show {
+    0%{
+        transform: scale(0);     
+        width: 0;
+        height: 0;
+        margin: 0;   
+    }
+        100% {
+        transform: scale(1);    
+    }
+}
+/*  // Needed for filters */
+
+/* For decoration only */
+body {
+    font-family: sans-serif;
+}
+
+.post{
+    margin-bottom:15px;
+}
+
+.filters {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+.filter {
+margin: 20px;
+}
+.filter:hover {
+cursor: pointer;
+}

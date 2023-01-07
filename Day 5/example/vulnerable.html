@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating HTML documents in a Webpage!</title>
+
+    <style>
+        .codex-editor__redactor{
+            padding-bottom:50px !important;
+        }
+    </style>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <!-- Start of Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">		
+            <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+            Coder!  
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Create-a-page</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+      <!-- End of Navbar-->
+
+      <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold">Create-a-page</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Create-a-page is our revolutionary new system that lets you create webpages right in your browser! All you have to do is start typing in the section below, and once done hit the button to save the content as HTML!
+            It's never been so easy!
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+          </div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+          <div class="container px-5">
+          </div>
+        </div>
+      </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div> <!--Spacer-->
+            <div class="card col-md-10">
+                <div class="card-body">
+                  <h3 class="card-title">Give it a try, type Below!</h5>
+                    <hr>
+                  <div id="editorjs"></div>
+                  <a href="#" class="btn btn-primary" onclick="dispatchData(saveResult)">Hit me to save html file</a>
+                </div>
+            </div>
+            <div class="col-md-1"></div> <!--Spacer-->
+        </div>
+    </div>
+    
+  
+    <br>
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Import Editor js-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+<!--Additional Tools-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script><!-- Code -->
+
+<!-- File saving-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+
+
+<script>
+    const editor = new EditorJS({ 
+        // Id of Element that should contain the Editor 
+        holder: 'editorjs', 
+
+        tools: { 
+            code: CodeTool,  
+        }, 
+        data: {
+            time: 1552744582955,
+            blocks: [
+                {
+                    type: "code",
+                    data: {
+                        code:`<img src='#' onerror='alert("Yes it is this easy")'/>`
+                    }
+                }
+                
+            ],
+            version: "2.11.10"
+        }
+    })
+
+    function dispatchData(dispatchFunction){
+        //Take in a function object and dispatch editor.js block data to it
+        editor.save().then((outputData) => {
+                //console.log('Article data: ', outputData);
+                dispatchFunction(outputData.blocks);
+            }).catch((error) => {
+                console.log('Saving failed: ', error)
+            });
+    }
+
+    function saveResult(outputData){
+        // Takes in outputData and shows the result to the result div
+        result = document.getElementById("result")
+        data = extractDatatoHTML(outputData);
+        resultingHTML = ""
+        for (const element of data) {
+            resultingHTML += element
+        }
+        var blob = new Blob([resultingHTML],
+        { type: "text/plain;charset=utf-8" });
+        saveAs(blob, "Title" + ".html");
+    }
+
+    function extractDatatoHTML(outputData){
+        // Takes in raw output data from editor js and turns it into a list of html strings
+        formattedData = new Array();
+        title=""
+        description=""
+        for (let contentBlock of outputData) {
+
+            switch (contentBlock.type){
+            case 'heading':
+                // console.log("heading", contentBlock.data)
+                formattedData.push(`<h${contentBlock.data.level}>${contentBlock.data.text}</h${contentBlock.data.level}>`)
+            break
+            case 'code':
+                //console.log("code", contentBlock.data)
+                // Escape HTML sequences
+                // processedData = contentBlock.data.code.replace("<", "&lt;").replace(">", "&gt;") // What you should do
+                processedData = contentBlock.data.code
+                formattedData.push(`
+<pre>
+    <code class="language-${contentBlock.data.languageCode}">${processedData}</code>
+</pre>        `)
+            break;
+            case 'paragraph':
+                //console.log("paragraph", contentBlock.data)
+                formattedData.push(`<p>${contentBlock.data.text}</p>`)
+                break
+            }
+        }
+    return formattedData;
+    }
+</script>
+</html>

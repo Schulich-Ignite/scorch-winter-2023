@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditorJS Starter</title>
+</head>
+<body>
+    <h1>Type Below!</h1>
+    <div id="editorjs"></div>
+</body>
+
+<!-- Import Editor js-->
+<script src="./js/editor.js"></script>
+
+<script>
+    // const editor = new EditorJS('editorjs'); // This is just the plaintext method
+
+    const editor = new EditorJS({ 
+        // Id of Element that should contain the Editor 
+        holder: 'editorjs', 
+        
+        // Rest of configuration goes here
+    })
+</script>
+</html>

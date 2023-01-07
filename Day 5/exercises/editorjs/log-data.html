@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditorJS log data</title>
+</head>
+<body>
+    <h1>Type Below!</h1>
+    <div id="editorjs"></div>
+    <button onclick="logData()" style="background:black;color:white;padding:.5em;font-size:1.1em; border-radius:5px;margin-left: 15%;">
+        Submit data
+    </button>
+</body>
+
+<!-- Import Editor js-->
+<script src="./js/editor.js"></script>
+
+<!-- import Additional Tools-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
+
+<script>
+    const editor = new EditorJS({ 
+        // Id of Element that should contain the Editor 
+        holder: 'editorjs', 
+        // Additional tools to use in name:Tool format
+        tools: { 
+            heading: Header
+        }, 
+    })
+
+    function logData(){
+        // Save the data, then do something with it
+        editor.save().then((outputData) => { // If it works
+                console.log('Page data: ', outputData); // Log data
+            }).catch((error) => { // If there is an error getting data
+                console.log('Saving failed: ', error) // Log error
+            });
+    }
+</script>
+</html>

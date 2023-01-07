@@ -1,0 +1,5 @@
+# See https://ezcv.readthedocs.io for documentation
+name: Alan Turing
+theme: turing
+resume: false
+biography: A description of yourself # This field is for writing about yourself you can add a > to span multiple lines

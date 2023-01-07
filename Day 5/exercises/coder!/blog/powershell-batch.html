@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Making PowerShell More Bash-ful | Blog</title>
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Highlightjs-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css"
+    />
+    <style>
+      .img-fluid {
+        border-radius: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Start of Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">
+          <p style="font-size: 1em; font-weight: bold; display: inline">
+            &lt;/&gt;
+          </p>
+          Coder!
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Navbar-->
+    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img
+            src="../img/powershell.png"
+            class="d-block mx-lg-auto img-fluid"
+            alt="create-a-page"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold lh-1 mb-3">
+            Making PowerShell More Bash-ful
+          </h1>
+          <p class="lead">
+            How to ease the headaches of working on windows terminals
+          </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a
+              type="button"
+              class="btn btn-outline-secondary btn-lg px-4"
+              href="../blog.html"
+              >Go back to blog posts</a
+            >
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <!-- End of header--><!-- Start of content -->
+    <article class="mb-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Blog content goes Below-->
+            <p>Windows terminals suck...</p>
+            <p>
+              At least they do if you're used to other systems. There are a few
+              things that are quite annoying, one of the main one's being that
+              there are <b>2 different scripting languages</b>!
+            </p>
+            <h4>DOS/CMD/BAT</h4>
+            <p>
+              cmd is the older terminal that ships with windows. You can write
+              files in
+              <a href="https://docs.fileformat.com/executable/cmd/"
+                >command (.cmd)</a
+              >
+              or
+              <a href="https://en.wikipedia.org/wiki/Batch_file">batch (.bat)</a
+              >. Generally speaking, this is the system that will give you the
+              most low-level control in windows. Some people also refer to this
+              as a DOS file/script. 
+              Here is an example batch file:
+            </p>
+            <pre><code class="language-batch">:: This file will go through and print some information
+:: echo is how you print things, it can also read environment variables with %variable_name%
+
+echo Hello World
+
+:: Echo your user directory
+
+echo %USERPOFILE%
+
+:: Check the routing for shulichignite.com
+
+tracert schulichignite.com
+</code>
+</pre>
+            <h4>Powershell/ps1</h4>
+            <p>
+              Powershell is the new system. Files for this use .ps1 extensions
+              and have deeper tie ins to the .net infrastructure on windows.
+              Normally this system has some annoying quirks. For example you can
+              no longer CD to an environment variable with the simple syntax
+              used above for CMD/bat. We have provided a file below that is a
+              profile you can use with powershell that will fix this issue!
+            </p>
+            <pre><code class="language-powershell"># Create new global aliases
+New-Alias USERPROFILE $env:userprofile
+New-Alias PATH $env:path
+New-Alias python3 python
+New-Alias which where.exe
+# NOTE: starship also adds an implicit: New-Alias ~ $env:userprofile
+
+# Introducing a set of "aliases" (a hashmap) that will be auto-expanded to expected paths
+$Custom_Alias = @{
+	"userprofile"= $env:userprofile;
+	"%userprofile%"= $env:userprofile;
+	"programfiles"= $env:programfiles;
+	"%programfiles%"= $env:programfiles;
+	"appdata"= $env:appdata;
+	"%appdata%"= $env:appdata;
+	"desktop" = Join-Path $env:USERPROFILE 'Desktop';
+	"documents" = Join-Path $env:USERPROFILE 'Documents';
+	"downloads" = Join-Path $env:USERPROFILE 'Downloads';
+	"development" = Join-Path $env:USERPROFILE 'development';
+}
+
+# Define custom functions to replace standard functions inside powershell
+
+Function GoodCD($a){
+    &lt;#
+    .Description
+    GoodCD is a cd replacement that allows old-style path expansions such as %USERPROFILE%
+    so for example `cd userprofile` will go to $env:USERPROFILE with this function
+    #&gt;
+
+    if ($Custom_Alias.ContainsKey($a)){ 
+        # Expand to correct path and navigate to it
+        Set-Location -LiteralPath $Custom_Alias[$a]
+    }
+    else{
+        Set-Location $a
+    }
+    
+}
+
+
+function GoodEcho($a){
+	<#
+    .Description
+     GoodEcho is a echo replacement that allows old-style path expansions such as %USERPROFILE%
+     #>
+  
+     if ($Custom_Alias.ContainsKey($a)){ 
+     # Expand to correct path and navigate to it
+     Write-Output $Custom_Alias[$a]
+     } 
+     else{
+     	Write-Output $a
+     }
+}
+
+# Replace standard cd with GoodCD()
+Set-Alias -Name cd -Value GoodCD -Option AllScope
+
+# Replace standard echo with GoodEcho()
+Set-Alias -Name echo -Value GoodEcho -Option AllScope
+</code>
+</pre>
+<p>To use this profile simply open up a powershell window, and then run:<br>
+    <br>
+    &emsp;notepad $profile<br>
+    <br>
+From there copy-paste the file from earlier as<br>
+<br>
+&emsp; %USERPOFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+</p>
+            <!-- Blog content goes Above-->
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- End of content-->
+  </body>
+
+  <!--Bootstrap-->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Highlight js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Snapper</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="../static/css/Hero-Features-icons.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><a class="navbar-brand" href="#">Snapper</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1"></div>
+        </div>
+    </nav>
+    <section>
+        <div style="height: 600px;background: url(&quot;{{user.banner}}&quot;) center / cover;"></div>
+        <div class="container py-4 py-xl-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2>{{user.name}}</h2>
+                    <p class="w-lg-50">{{user.bio}}</p>
+                </div>
+            </div>
+            <!-- Start of posts -->
+            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            {% for post in user.posts %}
+                <div class="col-md-4">
+                    <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{post.image}}">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">{{post.title}}</h4>
+                            <p class="card-text">{{post.description}}<br></p>
+                            <div class="d-flex"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="50" height="50" src="{{user.image}}">
+                                <div>
+                                    <p class="fw-bold mb-0">{{user.name}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+            </div>
+        </div>
+    </section>
+    <footer class="bg-light footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Snapper 2022. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

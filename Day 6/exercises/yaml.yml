@@ -1,0 +1,10 @@
+institution: MIT
+title: MSc Computer Science
+year_started: 2023
+current: true
+publications:
+  A very important paper:
+    date: 10-25-1998
+    description: |
+      This is a description of a paper
+      that was very important

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Comprehensions in Python | Blog</title>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Highlightjs-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <style>
+        .img-fluid{
+            border-radius: 5%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Start of Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">		
+            <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+            Coder!  
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar-->
+
+    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="../img/list-comprehension.png" class="d-block mx-lg-auto img-fluid" alt="List Comprehensions" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">List Comprehensions in Python</h1>
+                <p class="lead">The "pythonic" way to build lists that are created with simple itteration</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="../blog.html">Go back to blog posts</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End of header-->
+    
+    <!-- Start of content -->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Blog content goes Below-->
+                    <h2>What are List Comprehensions?</h2>
+                    <p>
+                        List Comprehensions are syntactically simple ways to create iterables of modified data. They don't add any new functionality, they just help to simplify common design patterns and cut down on the amount of code used to implement them.
+                    <br>
+                    Generally speaking there intended to help simplify common situations where you are creating lists!
+                    <br>
+                    For example:
+                    
+<pre>
+    <code class="language-python">result = [] # 1. Initialize empty list
+
+# 2. Iterate and store values in the list
+for number in range(10): # Square numbers from 0-9 and add them to the result list
+    result.append(number**2)
+
+print(result) # 3. Return or use list values</code>
+</pre>
+                    Could be shortened to
+<pre>
+    <code class="language-python">result = [number ** 2 for number in range(10)] # Steps 1-2
+
+print(result) # 3. Return or use list values</code>
+</pre>
+
+                    It does exactly the same as the above example, it is just shorter. The basic syntax for comprehensions are:
+<pre>
+    <code class="language-python">[operation for variable in iterable]</code>
+</pre>
+            Where operation is the calculation (or function) being run that results in the output you want (per item), variable is the name for the temporary iteration variable made, and iterable is some form of iterable (list, generator, set etc.).
+                    </p>
+                    <h2>Real World Applications</h2>
+                    <p>The primary purpose of these features in python is to shorten and standardize common design patterns. One problem they both present however is that although convenient to developers who are used to them, they are not intuitive to beginners and so depending on your codebase they may do more harm than good.
+                        <br>
+                        <br>
+                        Another issue they can present is that the conditions can stack to more than one iterative loop, meaning you can iterate multi-dimensional arrays with this method. If you are at the point of doing this for something more than a 2 dimensional array then, <strong>for the sake of your fellow developers</strong> just do the long way as if I have to read a list comprehension like the one below you will be off my team:
+<pre>
+    <code class="language-python"># Generates a 3d array that's 3 sublists of 3 elements 10 times
+please_no = [[[element for element in range(3)] for num in range(3)] for sublist in range(10)]
+print(please_no)"""prints:
+[[[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]],[[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2],[0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]]]"""</code>
+</pre>
+
+                        You can instead break this out into the longer (but easier to understand):
+<pre>
+    <code class="language-python">result = []
+for sublist in range(10): # Create 10 lists with 3 sublists of 3 numbers
+    current_sublist= []   # Setup sublist to fill with 3 sub-sublists
+    for element in range(3):
+        current_sub_sublist = []
+        for num in range(3): # Add 3 numbers to sub-sub list
+            current_sub_sublist.append(num)
+        # append the current sub-sublist of 3 numbers to the sublist
+        current_sublist.append(current_sub_sublist)
+    # append current sublist of 3 sublists to result
+    result.append(current_sublist)
+
+print(result)</code>
+</pre>
+                    </p>
+                    <h2>Some extra history</h2>
+                    <p>
+                        List comprehensions largely come from the idea of set theory and set notation.
+
+                    </p>
+                    <!-- Blog content goes Above-->
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- End of content-->
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Highlight js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>

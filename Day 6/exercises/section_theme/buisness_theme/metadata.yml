@@ -1,0 +1,8 @@
+created: '2022-11-12'
+ezcv_version: 0.3.5
+folder: buisness_theme
+name: buisness_theme
+sections:
+  team:
+    type: markdown
+updated: '2022-11-12'

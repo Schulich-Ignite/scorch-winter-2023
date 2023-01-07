@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating HTML documents in a Webpage!</title>
+
+    <style>
+        .codex-editor__redactor{
+            padding-bottom:50px !important;
+        }
+    </style>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body style="height:250vh">
+
+    <!-- Start of Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">		
+            <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+            Coder!  
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="create-a-page.html">Create-a-page</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar-->
+
+    <!-- Start of header-->
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold">Create-a-page</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Create-a-page is our revolutionary new system that lets you create webpages right in your browser! All you have to do is start typing in the section below, and once done hit the button to save the content as HTML!
+            It's never been so easy!
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                
+            </div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 50vh;">
+            <div class="container px-5">
+                <img src="./img/create-a-page.gif" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy" width="700" height="500">
+            </div>
+        </div>
+    </div>
+    <!-- End of header-->
+
+    <!-- Start of content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div> <!--Spacer-->
+            <div class="card col-md-10">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Give it a try, type Below!</h5>
+                    <hr>
+                    <div id="editorjs"></div>
+                    <a class="btn btn-primary" onclick="dispatchData(saveResult)">Hit me to save html file</a>
+                </div>
+            </div>
+            <div class="col-md-1"></div> <!--Spacer-->
+        </div>
+    </div>
+    <br>
+    <!-- End of content-->
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Import Editor js-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+<!--Additional Tools-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script><!-- Delimiter -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script><!-- List -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script><!-- Checklist -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script><!-- Quote -->
+<script src="https://cdn.jsdelivr.net/gh/paraswaykole/editor-js-code@latest/dist/bundle.js"></script><!-- Code -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script><!-- Embed -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script><!-- Table -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script><!-- Link -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script><!-- Marker -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script><!-- Inline Code -->
+<!-- File saving-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+
+
+<script>
+    const editor = new EditorJS({ 
+        // Id of Element that should contain the Editor 
+        holder: 'editorjs', 
+        
+        /** 
+         * Available Tools list. 
+         * Pass Tool's class or Settings object for each Tool you want to use 
+         */ 
+        tools: { 
+            heading: Header, 
+            list: List,
+            code:CodeTool,
+            table: Table,
+            marker:Marker,
+            quote:Quote,
+            inlinecode:InlineCode,
+            delimiter: Delimiter,
+            checklist: Checklist
+
+        }, 
+        data: {
+            blocks: [
+                {
+                type: "heading",
+                data: {
+                    level:1,
+                    text:"Enter a title!"
+                    }
+                },
+                {
+                    type: "heading",
+                    data: {
+                        level:3,
+                        text:"Enter a description!"
+                        }
+                    },
+                {
+                type: "paragraph",
+                data: {
+                    text:"Put your content here!"
+                    }
+                },
+            ],
+        }
+    })
+
+    function dispatchData(dispatchFunction){
+        //Take in a function object and dispatch editor.js block data to it
+        editor.save().then((outputData) => {
+                //console.log('Article data: ', outputData);
+                dispatchFunction(outputData.blocks);
+            }).catch((error) => {
+                console.log('Saving failed: ', error)
+            });
+    }
+
+    function saveResult(outputData){
+        // Takes in outputData and exports an HTML page
+        result = document.getElementById("result")
+        parsedResults = extractDatatoHTML(outputData);
+        console.log(parsedResults)
+        title = parsedResults[1];
+        html = parsedResults[0];
+        if (!title){ // Someone deletes headings
+            title="create-a-page output"
+        }
+        var blob = new Blob([html],
+        { type: "text/plain;charset=utf-8" });
+        saveAs(blob, title + ".html");
+    }
+
+    function extractDatatoHTML(outputData){
+        // Takes in raw output data from editor js and turns it into a html page as a string
+        formattedData = new Array();
+        let title = "";
+        let description = "";
+        for (let contentBlock of outputData) {
+            switch (contentBlock.type){
+            case 'heading':
+                if (contentBlock.data.level == 1 && !title){ // h1 and no title yet
+                    title = contentBlock.data.text;
+                }
+                else if (contentBlock.data.level == 3 && !description){
+                    description = contentBlock.data.text;
+                }else{
+                // console.log("heading", contentBlock.data)
+                formattedData.push(`<h${contentBlock.data.level}>${contentBlock.data.text}</h${contentBlock.data.level}>`)
+                }
+                break
+            case 'list': // Parse lists
+                console.log("list", contentBlock.data)
+                if (contentBlock.data.style== "ordered"){
+                    tagname = "ol"
+                }else{
+                    tagname="ul"
+                }
+                items = ""
+                for (let item of contentBlock.data.items) {
+                    items +=`<li>${item}</li>`
+                }
+                formattedData.push(`<${tagname}>${items}</${tagname}>`)
+                break
+            case 'paragraph':
+                //console.log("paragraph", contentBlock.data)
+                formattedData.push(`<p>${contentBlock.data.text}</p>`)
+                break
+            case 'code':
+                //console.log("code", contentBlock.data)
+                // Escape HTML sequences
+                processedData = contentBlock.data.code.replace("<", "&lt;").replace(">", "&gt;")
+                formattedData.push(`
+<pre>
+    <code class="language-${contentBlock.data.languageCode}">${processedData}</code>
+</pre>        `)
+                break
+            case "table": 
+                console.log("table", contentBlock.data)
+                break
+            case "delimiter":
+                formattedData.push(`<hr>`)
+                break
+            case "quote":
+                    console.log("quote", contentBlock.data)
+                break
+            case "checklist":
+                console.log("checklist", contentBlock.data)
+                break
+
+            }
+        }
+
+    // Take all of the formatted data, and build a webpage out of it as a string
+    const headTag = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${title} | Blog</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Highlightjs-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <style>
+            .img-fluid{
+                border-radius: 5%;
+            }
+        </style>
+    </head>`;
+    const header = `    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://images.unsplash.com/photo-1589101545496-c5dcd131213f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1058&q=80" class="d-block mx-lg-auto img-fluid" alt="create-a-page" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">${title}</h1>
+                <p class="lead">${description}</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="../blog.html">Go back to blog posts</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End of header-->`;
+    const navbarBody = `<body>
+
+    <!-- Start of Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">		
+            <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+            Coder!  
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar-->`;
+
+    const contentStart = `<!-- Start of content -->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Blog content goes Below-->`;
+
+    const endContent = `
+    <!-- Blog content goes Above-->
+    </div>
+    </div>
+    </div>
+    </article>
+    <!-- End of content-->
+
+    </body>
+
+    <!--Bootstrap-->
+    <${'script'} src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></${'script'}>
+
+
+    <!-- Highlight js-->
+    <${'script'} src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></${'script'}>
+    <${'script'}>hljs.highlightAll();</${'script'}>
+
+    </html>`;
+    let content = "";
+    for (const element of formattedData) {
+        content += element
+    }
+    const fullPage = `${headTag}${navbarBody}${header}${contentStart}${content}${endContent}`;
+
+    return [fullPage, title];
+    }
+
+
+</script>
+</html>

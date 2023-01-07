@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic datastructures in Golang | Blog</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Highlightjs-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <style>
+            .img-fluid{
+                border-radius: 5%;
+            }
+        </style>
+    </head><body>
+
+        <!-- Start of Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">		
+                <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+                Coder!  
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Navbar-->    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="../img/datastructures.png" class="d-block mx-lg-auto img-fluid" alt="Datastructures" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Basic datastructures in Golang</h1>
+                <p class="lead">Organization of data, methods, and enumerators in go</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="../blog.html">Go back to blog posts</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End of header--><!-- Start of content -->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Blog content goes Below--><p>Structs, Enumerators and Interfaces are various different types/data structures that can be created in go to fulfill various needs. These three mechanisms are the closest that go gets to being object oriented&nbsp;BUT&nbsp;make no mistake, none of these types are similar to traditional object oriented programming entirely, instead they allow you to follow similar design patterns that are available in object oriented languages without any sort of real sub-classing, or any 'one-stop shop' for objects.</p><h2>Definitions</h2><h3>Types</h3><p>Types are a way of generalizing data; for example a real number can be represented as an integer type (or int as it's commonly called). Types are found in all languages from simple types like integers, and strings to collections like arrays to even custom types like those presented in this demo.</p><h3>Structs</h3><p>Structs are a way of defining custom typed groupings of data (similar to class attributes). Another easy way to think about structs is to think of them is similar to a templated version of a&nbsp;<a href="https://en.wikipedia.org/wiki/Hash_table">Hash table</a>&nbsp;(a dict in python).</p><p>A simple example would be a date struct:</p>
+<pre>
+    <code class="language-go">type Date struct{
+    day int
+    month int
+    year int
+}
+</code>
+</pre>        <p>You can then use this date struct as a type to store data, for example:</p>
+<pre>
+    <code class="language-go">package main
+
+import "fmt"
+
+func main(){
+    today := Date{day: 13, month: 8, year: 2019}
+    // The data can then be accessed using dot syntax
+    fmt.printf("Today is %v-%v-%v", today.day, today.month, today.year) // prints Today is 13-8-2019
+    }
+</code>
+</pre>        <p>Because structs are types you can use them in almost any way you would use any other type such as creating an array of them, or nesting them inside each other. To demonstrate the nesting capabilities here is an example of a person struct with an attribute of birthday that is of the custom struct type Date that we defined earlier:</p>
+<pre>
+    <code class="language-go">type Person struct{
+    name string
+    age int
+    birthday Date
+}
+</code>
+</pre>        <h3>Interfaces</h3><p>Interfaces are collections of method signatures that you can assign a name to. They effectively allow you to store a set of methods that will be implemented later on, usually in the context of a struct. For example:</p>
+<pre>
+    <code class="language-go">// Coin is a Struct to represents coins in various currencies
+type Coin struct { // NOTE: Structs are like objects that only have attributes
+    value float64 // How much the coin is worth
+    name  string  // The colloquial name of the coin
+}
+
+// Currency is an interface that stores Currency conversion functions
+type Currency interface {
+    toUSD() float64
+}
+
+// toUSD takes a coin in CAD and returns the USD equivalent
+func (c Coin) toUSD() float64 {
+    return c.value * 0.7 // 1 CAD is roughly .7 USD
+}
+</code>
+</pre>        <p>With this interface of Currency added to the Coin struct, we can now do something like this:</p>
+<pre>
+    <code class="language-go">toonie := Coin{value: 2.00, name: "Toonie"}
+fmt.Printf("One %v is worth CAD $%v and USD $%v", toonie.name, toonie.value, toonie.toUSD()) // prints One toonie is worth CAD $2 and USD $1.4
+</code>
+</pre>        <p>Notice that the interface allows us to use the dot syntax to pass the instance as an argument, this is incredibly helpful for readability in programs with complicated structs and interfaces.</p><h3>Enumerators</h3><p>Enumerators are data structures that allow you to store&nbsp;CONSTANT&nbsp;information in a structured way. The idea behind enumerators is to store values that will be used throughout a program in a codified way to provide consistent behaviour. Typically enumerators represent data as key-value pairs where the value is an int. For example you could create an enumerator for various countries:</p>
+<pre>
+    <code class="language-go">// Countries is a dummy type for the enumerator found below
+type Countries int
+
+// An enumerator of various countries
+const (
+    Canada Countries = 0
+    UnitedStates Countries = 1
+)
+</code>
+</pre>        <p>There is also a mechanism called iota built into go to make creating enumerators more simple. Iota will start as 0 right after the const() and increment on every assignment.</p><p>Here is an example of how it works:</p>
+<pre>
+    <code class="language-go">// Countries is a dummy type for the enumerator found below
+type Countries int
+
+// An enumerator of various countries
+const (
+    Canada Countries = iota // iota is == 0
+    UnitedStates Countries = iota // iota == 1
+)
+
+// The enumerator above is equivalent to
+const (
+    Canada Countries = 0
+    UnitedStates Countries = 1
+)
+</code>
+</pre>        <p>You can also create a function to print string representations of your enumerators, for example:</p>
+<pre>
+    <code class="language-go">package main
+
+import "fmt"
+
+// Countries is a dummy type for the enumerator found below
+type Countries int
+
+// An enumerator of various countries
+const (
+    Canada Countries = 0
+    UnitedStates Countries = 1
+)
+
+// Function takes a Countries instance as an argument and returns a string representation
+func (country Countries) String() string {
+    // Define an array of strings to print based on the enumerator definition
+    names := [...]string{
+        "Canada", // If the country passed is equal to 0 return Canada
+        "United States"} // If the country passed is equal to 1 return United States
+
+    return names[country] // return the name of country
+}
+
+func main(){
+    // Prints the string representation of Countries(0), which is canada
+    fmt.Printf("My country is %s", Countries(0))
+}</code>
+</pre>        <h3>Additional demos</h3><h4>Structs</h4>
+<pre>
+    <code class="language-go">package main // Allows file to be run on it's own
+import "fmt" // Used to print to stdout
+// A Struct to represent coins in various currencies
+type Coin struct { // NOTE: Structs are like objects that only have attributes
+    value int    // How much the coin is worth in cents as an int
+    name  string // The colloquial name of the coin
+}
+
+// Creates all the coins found in CAD currency, adds them to a list then iterates and prints their values
+func main() {
+    // All CAD coins NOTE: Value is in cents so for example a toonie($2) is 200
+    var coins []Coin // Instantiate a slice of unknown length, containing coins
+
+    toonie := Coin{value: 200, name: "Toonie"}
+    loonie := Coin{value: 100, name: "Loonie"}
+    quarter := Coin{value: 25, name: "Quarter"}
+    dime := Coin{value: 10, name: "Dime"}
+    nickle := Coin{value: 5, name: "Nickle"}
+
+    coins = append(coins, toonie, loonie, quarter, dime, nickle) // Fill the slice with the Coin's
+
+    fmt.Printf("The coins in CAD are:\n")
+
+    for _, currentCoin := range coins { // For loop to print coin information
+        fmt.Printf("Coin name: %v \nCoin Value (in cents): %v\n",
+            currentCoin.name, currentCoin.value)
+    }
+}</code>
+</pre>        <h4>Interfaces</h4>
+<pre>
+    <code class="language-go">package main // Allows file to be run on it's own
+import "fmt" // Used to print to stdout
+// Coin is a Struct to represents coins in various currencies
+type Coin struct { // NOTE: Structs are like objects that only have attributes
+    value float64 // How much the coin is worth
+    name  string  // The colloquial name of the coin
+}
+
+// Currency is an interface that stores Currency conversion functions
+type Currency interface {
+    toUSD() float64
+}
+
+// toUSD takes a coin in CAD and returns the USD equivalent
+func (c Coin) toUSD() float64 {
+    return c.value * 0.7 // 1 CAD is roughly .7 USD
+}
+
+// Instantiates a coin and runs the toUSD function
+func main() {
+    toonie := Coin{value: 2.00, name: "Toonie"}
+    fmt.Printf("One %v is worth CAD $%v and USD $%v",
+        toonie.name, toonie.value, toonie.toUSD())
+}</code>
+</pre>        <h4>Enums</h4>
+<pre>
+    <code class="language-go">package main // Allows file to be run on it's own
+import "fmt" // Used to print to stdout
+// Currency is a dummy type for the enumerator found below
+type Currency int
+
+// An enumerator of various currencies
+const (
+    // NOTE: iota starts at 0 and increments on every definition until the next const()
+    CAD Currency = iota // CAD == 0
+    USD Currency = iota // USD == 1
+)
+
+// Function takes a Currency as an argument and returns a string representation
+func (currency Currency) String() string {
+    // Define an array of strings to print based on the enumerator definition
+    names := [...]string{
+        "CAD", // If the currency passed is equal to 0 return CAD
+        "USD"} // If the currency passed is equal to 1 return USD
+    return names[currency] // return the name of currency
+}
+
+// Prints the string and int representations of Currency values
+func main() {
+    fmt.Printf("%s is equivalent to %d\n%s is equivalent to %d",
+        Currency(0), Currency(0), Currency(1), Currency(1))
+}</code>
+</pre>        
+        <!-- Blog content goes Above-->
+    </div>
+</div>
+</div>
+</article>
+<!-- End of content-->
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Highlight js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>

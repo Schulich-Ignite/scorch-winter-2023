@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditorJS log data</title>
+</head>
+<body>
+    <h1>Type Below!</h1>
+    <div id="editorjs"></div>
+    <button onclick="saveData()" style="background:black;color:white;padding:.5em;font-size:1.1em; border-radius:5px;margin-left: 15%;">
+        Submit data
+    </button>
+</body>
+
+<!-- Import Editor js-->
+<script src="./js/editor.js"></script>
+
+<!-- import Additional Tools-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
+
+<!-- File saving-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+
+<script>
+    const editor = new EditorJS({ 
+        // Id of Element that should contain the Editor 
+        holder: 'editorjs', 
+        // Additional tools to use in name:Tool format
+        tools: { 
+            heading: Header
+        }, 
+    })
+
+
+    function saveData(){
+        editor.save().then((outputData) => {
+            // Function to log data from output
+            for (let contentBlock of outputData) {
+                switch (contentBlock.type){
+                    case 'heading':
+                        console.log("heading", contentBlock.data)
+                        break
+                    case 'paragraph':
+                        console.log("paragraph", contentBlock.data)
+                        break
+                }
+            }
+        }).catch((error) => { // If there's an error
+            console.log('Saving failed: ', error)
+        })
+    }
+</script>
+</html>

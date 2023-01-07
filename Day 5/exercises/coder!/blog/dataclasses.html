@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dataclasses | Blog</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Highlightjs-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <style>
+            .img-fluid{
+                border-radius: 5%;
+            }
+        </style>
+    </head><body>
+
+        <!-- Start of Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">		
+                <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+                Coder!  
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Navbar-->    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="../img/dataclasses.png" class="d-block mx-lg-auto img-fluid" alt="Dataclasses" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Dataclasses</h1>
+                <p class="lead">A simple and idiomatic way to define classes with many attributes</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="../blog.html">Go back to blog posts</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End of header--><!-- Start of content -->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Blog content goes Below--><p><a href="https://docs.python.org/3/library/dataclasses.html">Dataclasses</a>&nbsp;is a python standard library module for creating dataclasses. Dataclasses are just syntactically simpler class definitions, typically this is used when you have a class that is used to store many attributes to save you from having to type out&nbsp;<code>__init__()</code>&nbsp;and&nbsp;<code>__repr__()</code>&nbsp;methods for your classes.</p><p>Consider the example below:</p>
+<pre>
+    <code class="language-python">from dataclasses import dataclass # import dataclass method from module
+
+@dataclass # Decorate class to let python know this is a dataclass
+class user:
+    name: str
+    age: int
+    birthday: str
+    family_names: list[str]
+    address: str
+    job_title: str
+    country_of_birth: str
+</code>
+</pre>        <p>And the examples equivalent code without using dataclasses:</p>
+<pre>
+    <code class="language-python">class user:
+    def __init__(self, name, age, birthday, family_names, address, job_title, country_of_birth):
+        self.name = name
+        self.age = age
+        self.birthday = birthday
+        self.family_names = family_names
+        self.address = address
+        self.job_title = job_title
+        self.country_of_birth = country_of_birth
+
+    def __repr__(self):
+        return f"user(name='{self.name}', age={self.age}, birthday = '{self.birthday}',family_names = '{self.family_names}', address='{self.address}', job_title='{self.job_title}', country_of_birth='{self.country_of_birth}' )"
+</code>
+</pre>        <p>13 lines vs 8, not to mention the fact that if any of the variables change, or the class is subclassed the&nbsp;<code>__repr__</code>&nbsp;method will need to be recreated from scratch (including the hardcoded single quotes around strings to indicate their types).</p>
+        <!-- Blog content goes Above-->
+    </div>
+</div>
+</div>
+</article>
+<!-- End of content-->
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Highlight js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>

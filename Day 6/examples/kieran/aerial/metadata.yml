@@ -1,0 +1,10 @@
+created: 2022-4-22
+ezcv_version: 0.3.4
+folder: aerial
+name: aerial
+required_config:
+  name:
+    default: name
+    description: Your full name
+    type: str
+updated: 2022-10-7

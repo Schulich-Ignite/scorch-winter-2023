@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="./css/filtering.css">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <!-- Start of Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">		
+            <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+            Coder!  
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="create-a-page.html">Create-a-page</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar-->
+
+    <!-- Start of header-->
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold">Our Blog</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Check out our blog posts for the best coding advice!
+            </p>
+        </div>
+    </div>
+    <!-- End of header-->
+
+    <h2 class="text-center">Languages</h2>
+    <div class="filters">
+        <span class="filter" data-filter="all">ALL</span>
+        <span class="filter" data-filter="python">PYTHON</span>
+        <span class="filter" data-filter="javascript">JAVSCRIPT</span>
+        <span class="filter" data-filter="golang">GOLANG</span>
+    </div>
+<div class="container" style="margin-bottom: 25px">
+    <div class="posts row">
+        <div class="post col-md-4">
+            <div class="card">
+                <!-- TODO: add image-->
+                <img class="card-img-top" src="./img/powershell.png" alt="List comprehensions">
+                <div class="card-body">
+                    <h5 class="card-title">Making PowerShell More Bash-ful</h5>
+                    <p class="card-text">How to ease the headaches of working on windows terminals</p>
+                    <a href="blog/powershell-batch.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="post col-md-4" data-filter="python">
+            <div class="card">
+                <img class="card-img-top" src="./img/list-comprehension.png" alt="List comprehensions">
+                <div class="card-body">
+                    <h5 class="card-title">How to do List comprehensions</h5>
+                    <p class="card-text">The "pythonic" way to build lists that are created with simple itteration</p>
+                    <a href="blog/list-comprehensions.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="post col-md-4" data-filter="python">
+            <div class="card">
+                <img class="card-img-top" src="./img/dataclasses.png" alt="Dataclasses">
+                <div class="card-body">
+                    <h5 class="card-title">Dataclasses</h5>
+                    <p class="card-text">A simple and idiomatic way to define classes with many attributes</p>
+                    <a href="blog/dataclasses.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post col-md-4" data-filter="javascript">
+            <div class="card">
+                <img class="card-img-top" src="./img/dom-manipulation.png" alt="Dom manipulation">
+                <div class="card-body">
+                    <h5 class="card-title">How to modify DOM elements</h5>
+                    <p class="card-text">Updating a pages' elements dynamically after the page has loaded</p>
+                    <a href="blog/dom-manipulation.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="post col-md-4" data-filter="javascript">
+            <div class="card">
+                <img class="card-img-top" src="./img/equals.png" alt="equals">
+                <div class="card-body">
+                    <h5 class="card-title">The many equals signs of JS</h5>
+                    <p class="card-text">The many forms of equality, and what they mean in javascript</p>
+                    <a href="blog/equals-javascript.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="post col-md-4" data-filter="golang">
+            <div class="card">
+                <img class="card-img-top" src="./img/go-string-formatting.png" alt="String formatting in go">
+                <div class="card-body">
+                    <h5 class="card-title">String formatting in Golang</h5>
+                    <p class="card-text">How to properly format strings in Golang and print them</p>
+                    <a href="blog/string-formatting-go.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="post col-md-4" data-filter="golang">
+            <div class="card">
+                <img class="card-img-top" src="./img/datastructures.png" alt="Datastructures">
+                <div class="card-body">
+                    <h5 class="card-title">Basic datastructures in Golang</h5>
+                    <p class="card-text">Organization of data, methods, and enumerators in go</p>
+                    <a href="blog/basic-datastructures-in-go.html" class="btn btn-dark">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./js/filtering.js"></script>
+
+</html>

@@ -1,0 +1,53 @@
+<div id="container">
+ <!-- Where the text goes-->
+</div>
+
+<style>
+    p,h5,h4,h3,h2,h1{
+        font-family: sans-serif;
+    }
+
+    h5{font-size: 120%}
+    h4{font-size: 140%}
+    h3{font-size: 160%}
+    h2{font-size: 180%}
+    h1{font-size: 200%}
+
+</style>
+
+<script>
+
+function sleep(ms) {
+    // Lets you sleep for a number of miliseconds
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+async function modifyCode(){
+    container = document.getElementById("container");
+    container.innerHTML = `<p id="text">This is some text</p>`
+    for (let index = 0; index < 4; ++index) {
+        switch (index){
+            case 0:
+                container.innerHTML = `<h5 id="text">This is some text</h5>`;
+                break;
+            case 1:
+                container.innerHTML = `<h4 id="text">This is some text</h4>`;
+                break;
+            case 2:
+                container.innerHTML = `<h3 id="text">This is some text</h3>`;
+                break;
+            case 3:
+                container.innerHTML = `<h2 id="text">This is some text</h2>`;
+                break;
+            case 4:
+                container.innerHTML = `<h1 id="text">This is some text</h1>`;
+                break;
+        }
+        await sleep(1000);
+        console.log(index)
+        }
+}
+
+modifyCode()
+</script>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News site quill demo</title>
+    <!--highlightjs-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/monokai_sublime.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <!-- Quill Stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+
+
+    </head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary fixed-top rounded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+          <ul class="navbar-nav" style="font-size:1.3em">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="#">THE NEWS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Breaking News</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown10">
+                <a class="dropdown-item" href="#">Politics</a>
+                <a class="dropdown-item" href="#">Technology</a>
+                <a class="dropdown-item" href="#">Sports</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- End of navbar-->
+    <div class="spacer" style="height:50px"></div>
+    <div class="row" style="margin-top: 25px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+        <h1>The world is on fire</h1>
+        <h3>Not really, but that sure caught your attention huh</h3>
+        <hr>
+        <p style="font-size: 1.25em">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam minima quam tempora iste hic alias quae error fuga aut voluptates autem cumque inventore illo, sequi quibusdam sed possimus ipsam facilis!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate deserunt iste sapiente, minus rerum quae explicabo. Est quisquam, laudantium voluptatem sed dolor obcaecati nisi eveniet, ipsa, possimus eligendi animi reiciendis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis molestiae voluptas error perspiciatis officiis doloribus corporis quas vero. Ipsum accusantium quo provident fugiat fuga consequatur ab quis reprehenderit ut recusandae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptates inventore blanditiis magni sunt, ipsa quam. Quaerat magnam dolorem maxime at sit dolor nesciunt quis fugiat ullam, modi eligendi cum.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores consequuntur libero incidunt veritatis itaque dignissimos quasi harum, dolore pariatur, deserunt eaque alias fuga a nisi, blanditiis quod quo suscipit quisquam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In minus ratione distinctio sequi perspiciatis eaque repudiandae nisi est quo aliquid consequuntur, temporibus velit inventore eum, iste eos eligendi quam harum.
+        </p>
+
+        <p style="font-size: 1.25em">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam minima quam tempora iste hic alias quae error fuga aut voluptates autem cumque inventore illo, sequi quibusdam sed possimus ipsam facilis!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate deserunt iste sapiente, minus rerum quae explicabo. Est quisquam, laudantium voluptatem sed dolor obcaecati nisi eveniet, ipsa, possimus eligendi animi reiciendis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis molestiae voluptas error perspiciatis officiis doloribus corporis quas vero. Ipsum accusantium quo provident fugiat fuga consequatur ab quis reprehenderit ut recusandae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptates inventore blanditiis magni sunt, ipsa quam. Quaerat magnam dolorem maxime at sit dolor nesciunt quis fugiat ullam, modi eligendi cum.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In minus ratione distinctio sequi perspiciatis eaque repudiandae nisi est quo aliquid consequuntur, temporibus velit inventore eum, iste eos eligendi quam harum.
+        </p>
+
+        <p style="font-size: 1.25em"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate deserunt iste sapiente, minus rerum quae explicabo. Est quisquam, laudantium voluptatem sed dolor obcaecati nisi eveniet, ipsa, possimus eligendi animi reiciendis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis molestiae voluptas error perspiciatis officiis doloribus corporis quas vero. Ipsum accusantium quo provident fugiat fuga consequatur ab quis reprehenderit ut recusandae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptates inventore blanditiis magni sunt, ipsa quam. Quaerat magnam dolorem maxime at sit dolor nesciunt quis fugiat ullam, modi eligendi cum.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores consequuntur libero incidunt veritatis itaque dignissimos quasi harum, dolore pariatur, deserunt eaque alias fuga a nisi, blanditiis quod quo suscipit quisquam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In minus ratione distinctio sequi perspiciatis eaque repudiandae nisi est quo aliquid consequuntur, temporibus velit inventore eum, iste eos eligendi quam harum.
+        </p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+    <!--Header-->
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <hr>
+
+        <div class="row align-items-center g-lg-5 py-5">
+          <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 mb-3">Like our story?</h1>
+            <p class="col-lg-10 fs-4">Sign up for our newsletter!</p>
+          </div>
+          <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-4 p-md-5 border rounded-3 bg-light">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+              <hr class="my-4">
+              <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            </form>
+          </div>
+        </div>
+        <hr>
+      </div>
+      
+    <!-- End of Header-->
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Have something to say?</h2>
+            <h4>Leave us a comment below!</h4>
+        </div>
+        <div class="col-md-12">
+        <!-- Create the editor container -->
+            <div id="editor" style="min-height: 45vh; margin-bottom: 25px;">
+            </div>
+        </div>
+        <br>
+        <div class="col-md-12 text-center" style="margin-top: 55px;margin-bottom: 25px;">
+          <button type="button" onclick="console.log(editor.root.innerHTML)" class="btn btn-primary">Click me to log html</button>
+        </div>
+    </div>
+  </div>    
+</body>
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<!--Setting up quill editor-->
+<script>
+  // Set up editing options available
+  var toolbarOptions = [
+    [{ 'font': [] }],
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    ['bold', 'italic', 'underline', 'strike'],      
+    ['code-block'],
+    ['blockquote', { 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],      
+    [{ 'background': [] }],          
+    ['clean']                                         // remove formatting button
+  ];
+  
+  var chosen_theme = (window.screen.width > 736) ? "snow": "bubble"; // Set theme based on screen resolution
+  
+  // Convert editor div to quill object
+  var editor = new Quill('#editor', {
+    modules: {
+      syntax: true,              // Include syntax module
+      toolbar: toolbarOptions  // Include button in toolbar
+    },
+    theme: chosen_theme
+  });
+
+
+  </script>
+
+    
+</html>

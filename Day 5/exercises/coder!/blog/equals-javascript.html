@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The many equals signs of JS | Blog</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Highlightjs-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <style>
+            .img-fluid{
+                border-radius: 5%;
+            }
+        </style>
+    </head><body>
+
+        <!-- Start of Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">		
+                <p style="font-size:1em; font-weight:bold;display:inline;">&lt;/&gt;</p>
+                Coder!  
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../create-a-page.html">Create-a-page</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Navbar-->    <!-- Start of header-->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="../img/equals.png" class="d-block mx-lg-auto img-fluid" alt="Equals" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">The many equals signs of JS</h1>
+                <p class="lead">The many forms of equality, and what they mean in JavaScript</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="../blog.html">Go back to blog posts</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End of header--><!-- Start of content -->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Blog content goes Below--><p>If you're new to JS you might wonder what the title even means. Well there are actually 3 different ways that the = is used in javascript, based on how many of them you put in a row.&nbsp;</p><h3>The two "normal ones"</h3><p>So, there are two "normal" situations you have probably seen the = in javascript, assignments and checking conditions. Assignments are used to assign variables, and conditionals is what you do when you're using an if statement, or while loops. Here's an example of both</p>
+<pre>
+    <code class="language-js">authorized = false; // This is an assignment (uses 1 =)
+
+if (authorized == true){ // This is a conditional (uses 2 =)
+  console.log("You're good to go")
+} else{
+  console.log("Bad boi, get out of here")
+}</code>
+</pre>        <p>It seems like this should be all you need... right?</p><h3>The problem child</h3><p>There is a third operator that uses 3 = and is another form of comparison, but more strict. Take this example</p>
+<pre>
+    <code class="language-js">age = "23"
+
+if (age == 23){
+  console.log("Based")
+} else {
+console.log ("Less based")
+}</code>
+</pre>        <p>Now in the first example it was clear that authorized is false, and the second message would print. In this case however the == will actually convert the string to an integer, and then make the comparison, which means "Based" would be printed instead.&nbsp;</p><h3>Consequences</h3><p>This is very weird for most people, and == actually does other conversions (these happen with a lot of operators) depending on types that are being compared. This can lead to unexpected behaviours in your code, such as</p>
+<pre>
+    <code class="language-js">1 == true // This is true
+// So when doing calculations
+2-1 == true // This is true
+"29"-28 == true // this is true</code>
+</pre>        <p>That last one the - operator converts <code class="inline-code">"29"</code> to <code class="inline-code">29</code>, then subtracts <code class="inline-code">28 </code>from it (leaving <code class="inline-code">1</code>), which is <code class="inline-code">true</code>. JavaScript to be fair isn't the only language that does this on comparisons (<code class="inline-code">1==True</code> in python as well), but it is the only one (that I know of) that solves this in a weird way. The === operator is a strict comparison in JavaScript. This means it will check if something is equivalent to something else without doing type conversions. So</p>
+<pre>
+    <code class="language-js">// ==
+1 == true // This is true
+// So when doing calculations
+2-1 == true // This is true
+"29"-28 == true // this is true
+
+// ===
+1 === true // this is false
+// So when doing calculations
+2-1 === true // this is false
+"29"-28 === true // this is false</code>
+</pre>        
+        <!-- Blog content goes Above-->
+    </div>
+</div>
+</div>
+</article>
+<!-- End of content-->
+
+</body>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<!-- Highlight js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>

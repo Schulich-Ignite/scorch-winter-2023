@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditorJS Extra Additional Tools</title>
+</head>
+<body>
+    <h1>Type Below!</h1>
+    <div id="editorjs"></div>
+</body>
+
+<!-- Import Editor js-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+<!--Additional Tools-->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script><!-- Delimiter -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script><!-- List -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script><!-- Checklist -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script><!-- Quote -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script><!-- Code -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script><!-- Embed -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script><!-- Table -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script><!-- Link -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script><!-- Marker -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script><!-- Inline Code -->
+
+<!-- File saving-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+
+<script>
+    const editor = new EditorJS({ 
+        // Id of Element that should contain the Editor 
+        holder: 'editorjs', 
+        
+        /** 
+         * Available Tools list. 
+         * Pass Tool's class or Settings object for each Tool you want to use 
+         */ 
+        tools: { 
+            heading: Header, 
+            list: List,
+            code:CodeTool,
+            table: Table,
+            marker:Marker,
+            quote:Quote,
+            inlinecode:InlineCode,
+            delimiter: Delimiter,
+            checklist: Checklist
+
+        }, 
+
+        // Add some default data
+        data: {
+            blocks: [
+                {
+                type: "heading",
+                data: {
+                    level:1,
+                    text:"Enter a title!"
+                    }
+                },
+                {
+                    type: "heading",
+                    data: {
+                        level:3,
+                        text:"Enter a description!"
+                        }
+                    },
+                {
+                type: "paragraph",
+                data: {
+                    text:"Put your content here!"
+                    }
+                },
+            ],
+        }
+    })
+
+    function logData(){
+        editor.save().then((outputData) => {
+            // Function to log data from output
+            for (let contentBlock of outputData) {
+                switch (contentBlock.type){
+                    case 'heading':
+                        console.log("heading", contentBlock.data)
+                        break
+                    case 'list':
+                        console.log("list", contentBlock.data)
+                        break
+                    case 'paragraph':
+                        console.log("paragraph", contentBlock.data)
+                        break
+                    case 'code':
+                        console.log("code", contentBlock.data)
+                        break
+                    case "table": 
+                        console.log("table", contentBlock.data)
+                        break
+                    case "delimiter":
+                        console.log("Delimiter", contentBlock.data)
+                        break
+                    case "quote":
+                            console.log("quote", contentBlock.data)
+                        break
+                    case "checklist":
+                        console.log("checklist", contentBlock.data)
+                        break
+                }
+            }
+        }).catch((error) => { // If there's an error
+            console.log('Saving failed: ', error)
+        })
+    }
+
+</script>
+</html>
