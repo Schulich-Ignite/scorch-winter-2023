@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross site Scripting</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            padding: 0.5rem 2rem;
+            margin: 0 auto;
+            max-width: 90ch;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+            margin: 2rem 0 1rem;
+        }
+        
+        p {
+            margin: 1rem 0;
+        }
+        
+        pre, code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        a {
+            color: orange;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color:rgb(228, 72, 0);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(255, 189, 67);
+            text-decoration: none;
+        }
+        
+        ul, li {
+            margin: 1rem 1.5rem;
+            padding: 0;
+        }
+            
+    </style>
+</head>
+<body>
+    <h1>What is Cross Site Scripting (XSS)?
+        
+    </h1>
+<p>Cross site scripting (XSS) is a type of web security vulnerability that allows an attacker to inject malicious code into a website. This code is executed by the victim's browser, and can be used to steal sensitive information, manipulate the website's content, or perform other malicious actions.</p>
+
+<p>There are two main types of XSS: reflected and stored.</p>
+
+<h2>Reflected XSS</h2>
+<p>Reflected XSS occurs when an attacker injects malicious code into a URL that is then reflected back to the user's browser. Here's an example of how a reflected XSS attack might work:</p>
+
+<pre>
+    <code class="language-js">
+// Attacker's website
+const maliciousCode = `&lt;script>alert('XSS Attack')&lt;/script>`;
+const url = `http://victim.com/search?q=${maliciousCode}`;
+window.open( url, "_blank"); // Open the URL in a new window
+</code>
+</pre>
+
+<p>With this code being a script that the victim's website runs as part of it's normal execution</p>
+
+<pre>
+  <code class="language-js">
+// Victim's website
+const searchTerm = new URL(window.location.href).searchParams.get('q');
+document.write(searchTerm); // Used to display the search term on the site usually
+    </code>
+</pre>
+
+<p>In this example, the attacker's website creates a URL with malicious code injected into the query string. When the victim clicks on the link, the victim's browser sends a request to the victim's website with the malicious code in the query string. The victim's website then echoes the search term back to the browser, causing the malicious code to be executed.</p>
+
+<pre>
+    <code class="language-js">
+// Attacker's website
+const maliciousCode = `&lt;script>alert('XSS Attack')&lt;/script>`;
+const url = `http://victim.com/search/${maliciousCode}`;
+window.open( url, "_blank"); // Open the URL in a new window
+</code>
+</pre>
+
+<p>With this code being a script that the victim's website runs as part of it's normal execution</p>
+
+<pre>
+  <code class="language-js">
+// Victim's website
+const searchTerm = new URL(window.location.href).pathname.split('/').pop();
+document.write(searchTerm); // Used to display the search term usually
+    </code>
+</pre>
+
+<p>In this example, the attacker's website creates a URL with malicious code injected into the path parameter. When the victim clicks on the link, the victim's browser sends a request to the victim's website with the malicious code in the path parameter. The victim's website then echoes the search term back to the browser, causing the malicious code to be executed.</p>
+
+<h2>Stored XSS</h2>
+<p>Stored XSS occurs when an attacker injects malicious code into a website's database or other permanent storage, which is then executed whenever a user loads the affected page. Here's an example of how a stored XSS attack might work. Imagine you have a comment form on a news site that then displays the comments on the page when people read an article:</p>
+
+<pre><code class="language-html">
+  &lt;form id="comment-form">
+    &lt;input type="text" name="name">
+    &lt;input type="textarea" name="comment">
+    &lt;button type="sumit">Submit&lt;/button>
+  &lt;/form>
+</code></pre>
+
+<p>Now imagine in the above form you were to add the following code to the comment input:</p>
+
+<pre>
+    <code class="language-js">
+&lt;script>alert('XSS Attack')&lt;/script>;
+    </code>
+</pre>
+
+<p>In this example, the attacker submits the comment on the victim's website that includes malicious code. When the victim's website saves the comment to the database, the malicious code is stored along with it. Whenever a user loads the page and the comments are displayed, the malicious code is executed by the victim's browser, and an alert appears with "XSS Attack".</p>
+
+<h2>Preventing XSS Attacks</h2>
+<p>There are several measures that website developers can take to prevent XSS attacks. These include:</p>
+
+<ul>
+  <li>Sanitize user input: When accepting input from users (such as comments or search queries), make sure to sanitize the input to remove any potentially malicious code. This can be done using tools such as <a href="https://www.npmjs.com/package/html-purify">html-purify</a></li>
+  <li>Use content security policies: Implement a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#:~:text=Content%20Security%20Policy%20(CSP)%20is,site%20defacement%2C%20to%20malware%20distribution.">content security policy</a> on your website to specify which sources of content are allowed to be loaded by the browser. This can help to prevent attackers from injecting malicious code into your website from external sources.</li>
+  <li>Encode output: When displaying user input on your website, make sure to encode it to prevent it from being executed as code. This can be done using functions such as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI">encodeURI</a> or <a href="https://www.tutorialspoint.com/prototype/prototype_string_escapehtml.htm">escapeHtml</a>.</li>
+</ul>
+
+<h2>Famous Examples of XSS</h2>
+<p>Here are a few examples of famous times XSS was used:</p>
+
+<ul>
+  <li>In 2005, an XSS attack on MySpace allowed an attacker (Samy, also known as JS.Spacehero) to send malicious code to users in the form of a link that appeared to be from a friend. When clicked, the code was executed and the attacker was able to post the message "but most of all, samy is my hero" on a victim's MySpace profile page as well as send Samy a friend request<a href="https://samy.pl/myspace/tech.html" target="_blank"><sup>[1]</sup></a></li>
+  <li>In 2010, an XSS attack on the Gmail account of a human rights activist in China allowed the attacker to access the victim's email<a href="https://www.theguardian.com/world/2010/jan/14/china-human-rights-activists-cyber-attack" target="_blank"><sup>[2]</sup></a><a href="https://www.telegraph.co.uk/news/worldnews/asia/china/6996906/Chinese-human-rights-activists-claim-their-Google-emails-were-hacked.html" target="_blank"><sup>[3]</sup></a></li>
+  <li>In 2014, an XSS vulnerability was found in TweetDeck, an application for the management of twitter accounts. This attack allowed full unsanitized javascript to be executed via tweets containing the text <a href="https://www.theguardian.com/technology/2014/jun/11/twitter-tweetdeck-xss-flaw-users-vulnerable"><sup>[5]</sup></a>
+  <li>In 2016, an XSS attack on the online auction site eBay allowed an attacker to gain access to the accounts of all eBay users and steal sensitive information such as passwords and financial data.<a href="https://www.zdnet.com/article/simple-ebay-security-flaw-exposes-users-to-phishing-campaigns/" target="_blank"><sup>[4]</sup></a></li>
+</ul>
+
+<p>XSS attacks can have serious consequences for both website owners and users. By taking steps to prevent XSS vulnerabilities, you can help keep your website and your users safe.</p>
+
+</body>
+</html>

@@ -1,24 +1,28 @@
-# Web Course Files
+# Scorch exercise files 2023
 
 A repository with all the files & resources for students in the schulich ignite web development course
 
+## Overview of sessions
 
+Session 1: HTML, CSS, & Basic design
 
-## Overview of days
+Session 2: Advanced CSS, Bootstrap & Javascript 
 
-Day 0 Getting Started
-Day 1 HTML/JS/CSS
-Day 2 Javascript & CSS Templates
-Day 3 Building a site with an existing template
-Day 4 Third party JS & different ways to create sites
-Day 5 Building a site with an SSG
-Day 6 Deploying a site with an SSG
-Day 7 Putting it all together
-Day 8 Flex day
+Session 3: Advanced JS, Vendoring (Using other people’s code)
 
+Session 4: Markup languages, templating & SSG's
 
+Session 5: Basic networking & Deploying sites
+
+Session 6: Intro to backend and API's
+
+Session 7: Security
+
+Session 8: Other cool things you can do with web technologies 
 
 ## File Structure
+
+Each session has it's own folder. On top of that the end
 
 For each day there will be a few files/folders included
 
@@ -29,3 +33,11 @@ This file is the readme for the day, it just contains some basic information and
 ### /exercises
 
 This folder will contain the starter code for all the exercises we are doing for the day
+
+### /exercises/end of session exercise
+
+This folder will contain the end of session exercise for that session
+
+### /examples
+
+This folder will contain examples from the slides

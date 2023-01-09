@@ -2,10 +2,6 @@
 
 Today we're getting everything setup and ready to go for the rest of the course
 
-[Slides](https://docs.google.com/presentation/d/1YDLnu2izdXAPugegnC6_VTLPRpyskd-Hcz-Yai4ye9Y/edit?usp=sharing)
-
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/bdM7BPP2Qbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Install Steps
 
 Below are details on how to install everything you need
