@@ -3,7 +3,7 @@
 // Find elements with filter class
 const filters = document.querySelectorAll('.filter');
 
-const keyword = "animal" // The keyword to use to select
+const keyword = "post" // The keyword to use to select
 
 filters.forEach(filter => { 
 
@@ -24,7 +24,7 @@ filters.forEach(filter => {
     if (selectedFilter == 'all') {
         itemsToHide = [];
         // Find elements that have ANY data-filter set
-        itemsToShow = document.querySelectorAll(`.${keyword}s [data-filter]`);
+        itemsToShow = document.querySelectorAll(`.${keyword}s > *`);
     }
 
     // Hide items that should be hidden
