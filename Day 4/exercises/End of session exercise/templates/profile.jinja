@@ -1,0 +1,45 @@
+{% extends 'base.jinja' %}
+{% block title %} Profile Page {% endblock %}
+{% block main %}
+<div class="row d-flex justify-content-center mt-5">
+    <div class="col col-lg-7 mb-4 mb-lg-0">
+    <div class="card" style="border-radius: .5rem;">
+        <div class="row g-0">
+        <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+            <img src="{{user.image}}" alt="avatar" class="img-fluid my-5" style="height:70%; object-fit:cover; border-radius:1em;">
+            <h5 class="text-dark">{{user.name}}</h5>
+            <p>Web {{user.email}}</p>
+            <i class="far fa-edit mb-5"></i>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body p-4">
+            <h6>Information</h6>
+            <hr class="mt-0 mb-4">
+            <div class="row pt-1">
+                <div class="col-6 mb-3">
+                <h6>Email</h6>
+                <p class="text-muted">{{user.email}}</p>
+                </div>
+                <div class="col-6 mb-3">
+                <h6>Phone</h6>
+                <p class="text-muted">Signup Date: {{user.sign_up_date}}</p>
+                </div>
+
+
+                <div class="col-6 mb-3">
+                    <h6>Language</h6>
+                    <p class="text-muted">{{user.language}}</p>
+                </div>
+
+                <div class="col-6 mb-3">
+                    <h6>Currency</h6>
+                    <p class="text-muted">{{user.currency}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
