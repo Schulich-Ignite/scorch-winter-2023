@@ -1,0 +1,25 @@
+{% extends "baseProfile.jinja"%}
+{%block main %}
+<!--LEVEL 3 Code: Sign up form to create a profile-->
+<!--Uses addPicture.js script to add as many photo fields to form as needed-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center d-flex flex-column align-items-center">
+                        <form id="profileForm" method="post" enctype="multipart/form-data">
+                            <div class="mb-3"><label class="form-label" for="profilePic">Post Picture (optional)</label><input class="form-control" type="file" name="postPicture"></div>
+                            <div class="mb-3"><label class="form-label">Post Title</label><input class="form-control" type="text" placeholder="Title" name="postTitle" required></div>
+                            <div class="mb-3" placeholder="Caption"><label class="form-label">Post Caption</label><input class="form-control" type="text" placeholder="postCaption" name="postCaption" required></div>
+                            <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" id="createPost" type="submit">Add Post to {{username}}'s profile</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--div to catch errors if any are found when parsing data for profile-->
+    <div class="container align-items-center">
+        <p class="text-center">{{error}}</p>
+    </div>
+{%endblock%}

@@ -1,0 +1,8 @@
+/*hide divs by default*/
+.filterable{
+    display:none;
+}
+/*class to display is added to all items that are filtered for*/
+.show{
+    display: flex;
+}

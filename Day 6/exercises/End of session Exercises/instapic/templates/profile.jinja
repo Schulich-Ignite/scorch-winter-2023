@@ -1,0 +1,41 @@
+{%extends "baseProfile.jinja"%}
+{%block main%}
+    <div class="container">
+        <div class="row gx-4 row-cols-2 d-flex justify-content-center align-items-center">
+            <div class="col-4 col-xxl-2 d-flex d-md-flex d-xl-flex justify-content-center justify-content-md-center align-items-md-center justify-content-xl-center" style="width: 240px;padding-bottom: 13px;"><img class="width: 240px; height: 240px; object-fit: cover;rounded-circle border border-5 border-primary d-xxl-flex" width="100" height="80" style="border-radius: 122px;width: 240px;height: auto;" src=""></div>
+            <div class="col-auto d-flex align-self-center order-last" style="display: flex;">
+                <h1>username | realName</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="d-flex d-xxl-flex justify-content-center justify-content-xxl-center">user bio will go here</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h5 class="text-bg-primary d-xl-flex justify-content-center align-items-xl-center" style="height: auto;width: auto;margin: auto;margin-top: 5px;padding-right: 10px;border-radius: 608px;border-color: rgba(255,255,255,0);padding-top: 10px;margin-bottom: 20px;background: rgb(55, 99, 244);padding-left: 10px;margin-left: 10px;margin-right: 10px;font-size: 18px;text-align: center;padding-bottom: 10px;min-width: 15vw;">
+                    example topic
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center text-center" style="justify-content: center;">
+                <div id="cardEntrada-2" class="p-4 text-center shadow-lg m-3 rounded-5" style="background: var(--bs-blue);margin-top: 21px;">
+                    <img src="" width="116" height="121" style="width: 271px;height: auto;padding-top: 1px;margin-top: -9px;border-radius: 17px;">
+                    <h3 class="text-white text-center pt-2">Post Title</h3>
+                    <p class="fw-light text-white m-0">Post Caption</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center margin-auto justify-content-center align-items-center">
+                    <div class="text-center d-flex flex-column align-items-center justify-content-center">
+                        <div class="text-center margin-auto justify-content-center align-items-center"><a class="btn btn-secondary shadow" role="button" onclick="createPost()" style="min-width: 10vw;font-size: 14px;padding-right: 3%;padding-left: 3%;">Add a Post</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

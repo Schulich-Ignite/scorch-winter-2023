@@ -1,0 +1,27 @@
+{% extends "base.jinja"%}
+{%block main %}
+<!--LEVEL 3 Code: Sign up form to create a profile-->
+<!--Uses addPicture.js script to add as many photo fields to form as needed-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center d-flex flex-column align-items-center">
+                        <form id="profileForm" method="post" enctype="multipart/form-data">
+                            <div class="mb-3"><label class="form-label" for="profilePic">Upload a Profile Picture</label><input class="form-control" type="file" name="profilePic"></div>
+                            <div class="mb-3"><label class="form-label">Username</label><input class="form-control" type="text" placeholder="Username123" name="username" required></div>
+                            <div class="mb-3" placeholder="user name"><label class="form-label">Real Name</label><input class="form-control" type="text" placeholder="Real Name" name="realName" required></div>
+                            <div class="mb-3"><label class="form-label">Profile Bio</label><input class="form-control" type="text" placeholder="Bio" name="bio" required></div>
+                            <div class="mb-3"><label class="form-label">Profile Topics (submit a list of profile topics separated by comma)</label><input class="form-control" type="text" placeholder="ex. artistic, cars, nature" name="topics" required></div>
+                            <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" id="createProfile" type="submit">Create Profile</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--div to catch errors if any are found when parsing data for profile-->
+    <div class="container align-items-center" name="errorDiv">
+        <p class="text-center"></p>
+    </div>
+{%endblock%}

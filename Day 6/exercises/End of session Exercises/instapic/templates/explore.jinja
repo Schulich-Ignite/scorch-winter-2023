@@ -1,0 +1,47 @@
+{% extends "base.jinja"%}
+{%block main %}
+    <div class="container" style="width: 80vw;">
+        <div class="row" id="title" style="padding-bottom: 18px;">
+            <div class="col">
+                <h2 class="d-xxl-flex justify-content-xxl-center" style="font-family: Allan, serif;text-decoration: underline;">Explore</h2>
+                <p class="d-xxl-flex justify-content-xxl-center" style="font-family: Actor, sans-serif;font-size: 18px;">Select a topic from the list below to view all profiles with that topic listed. Click each profile card to be taken to the profile of the user</p>
+                <div class="row align-items-center" id="filterButtons">
+                    <div class="col mb-4 "  style="padding-left: 10px; padding-right 10px;">
+                        <button class="btn btn-primary shadow d-block w-100" id="allTopics" onclick='filter()' type="submit">all topics</button>
+                    </div>
+                    <div class="col mb-4"  style="padding-left: 10px; padding-right 10px;">
+                        <button class="btn btn-primary shadow d-block w-100" id="" onclick='filter()' type="submit">Example Topic</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="profile-card">
+        <a href="">
+            <div class='col filterable' style="margin-bottom: 15px;">
+                <div class="card" style="background: rgba(214,214,214,0.18);box-shadow: 7px 6px 14px rgb(0,0,0);">
+                    <div class="card-body" style="padding-right: 0px;">
+                        <div class="row d-flex justify-content-center align-items-xxl-center" style="width: 100%;text-align: center;">
+                            <div class="col-md-6 col-xxl-2 d-flex d-xxl-flex justify-content-center justify-content-xxl-center" style="width: 18vw;padding-left: 0px;margin-left: -0;text-align: center;padding-right: 0;margin-bottom: 7px;"><img class="width: 18vw; height: 18vw; object-fit: cover;rounded-circle border border-5 border-primary d-flex d-xxl-flex justify-content-center align-items-center align-content-center" width="62" height="62" style="border-radius: 122px;width: 150px;height: auto;" src='static/img/{{userdata.profilePicture}}'></div>
+                            <div class="col-12 col-md-12 col-xxl-7 d-flex d-lg-flex d-xxl-flex my-auto align-items-lg-center justify-content-xxl-center align-items-xxl-center" style="width: auto;height: 100%;">
+                                <h2 class="fw-bold text-white d-xxl-flex justify-content-xxl-center align-items-xxl-center mb-3" style="width: 100%;padding-right: 0px;">username | realName</h2>
+                            </div>
+                            <div class="col-md-6 col-xxl-9 d-xxl-flex align-items-xxl-center" style="width: 55vw;padding-right: 0;padding-left: 10px;display: inline-block !important;height: auto;margin: auto;">
+                                <div class="row d-sm-flex d-xxl-flex justify-content-sm-center align-items-xxl-center">
+                                    <div class="col d-xxl-flex align-items-xxl-center" style="height: 100%;">
+                                        <p class="d-xxl-flex justify-content-xxl-start align-items-xxl-center" style="width: auto;margin-bottom: 0px;">user bio goes here<br><br></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center" style="">
+                                        <h5 class="text-bg-primary d-xxl-flex justify-content-xxl-center align-items-xxl-center" style="height: auto;width: auto;margin: auto;margin-top: 5px;padding-right: 20px;border-radius: 608px;border-color: rgba(255,255,255,0);padding-top: 10px;margin-bottom: 5px;background: rgb(55, 99, 244);padding-left: 20px;margin-left: 76px;margin-right: 83px;font-size: 18px;text-align: center;padding-bottom: 10px;">example topic</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        </div>
+    </div>
+{%endblock%}

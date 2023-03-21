@@ -1,0 +1,95 @@
+{
+    "xX_SimbaIsTheBest_Xx": {
+        "realName": "Simba",
+        "bio": "I'm a cat. I like to sleep. Meow.",
+        "topics": [
+            "animals",
+            "cute animals",
+            "cats"
+        ],
+        "profilePicture": "IMG_0477.JPEG",
+        "posts": [
+            {
+                "title": "Selfie Xd",
+                "caption": "#justWokeUpLikeThis (jk, It took me 8 hours to comb my hair and another 2 to get the right angle)",
+                "image": "IMG_0259.JPEG"
+            },
+            {
+                "title": "Peekaboo",
+                "caption": "I'm just in a silly goofy mood. LOL",
+                "image": "IMG_0328.JPEG"
+            },
+            {
+                "title": "Cat Tower Catastrophe",
+                "caption": "My brother stole my spot in the cat tower UGH what a nerd",
+                "image": "IMG_0478.JPEG"
+            },
+            {
+                "title": "Camping",
+                "caption": "My tent is so comfy and dark, it's the perfect nap spot",
+                "image": "IMG_0437.JPEG"
+            },
+            {
+                "title": "Holdin' Paws",
+                "caption": "My brother may be annoying but sometimes he's kinda cool I guess (don't tell him I said that)",
+                "image": "IMG_0409.JPEG"
+            },
+            {
+                "title": "Y'all Ever Try Temptations?",
+                "caption": "Those things SLAP, I just ate like 100 of them and I feel awful but WORTH",
+                "image": "none"
+            }
+        ]
+    },
+    "TrueGamer": {
+        "realName": "Quinton Asdelia",
+        "bio": "I'm honestly the best, it's not even close. You should probably just uninstall tbh.",
+        "topics": [
+            "gaming"
+        ],
+        "profilePicture": "sean-stone-dkb3wApu5XQ-unsplash.jpg",
+        "posts": [
+            {
+                "title": "Unbelievable",
+                "caption": "MRW there's a Yasuo midlane on my team. I just KNOW homie's aboutta run it down mid as soon as he instalocks. Players like that are why I'm hardstuck bronze.",
+                "image": "fausto-sandoval-Cc-KUNmV1UE-unsplash.jpg"
+            },
+            {
+                "title": "Day Dreamin...",
+                "caption": "Ugh I can't wait to be a pro gamer one day. I bet OPTIC is scouting me rn tbh, I should probably just drop out of school rn so that I can focus on my career.",
+                "image": "florian-olivo-Mf23RF8xArY-unsplash.jpg"
+            },
+            {
+                "title": "#BattleStation",
+                "caption": "man I can't wait to get out of 5th grade so that I can get a job and FINALLY save up for a PC like this, I wish mom and dad weren't so mean and would just buy it for me already! Maybe I'll ask santa this year...",
+                "image": "axville-WcrqKjgMPfI-unsplash.jpg"
+            }
+        ]
+    },
+    "IndieGurl72": {
+        "realName": "*** Starlight Twinkles ***",
+        "bio": "I'm not like other girls I promise",
+        "topics": [
+            "indie",
+            "alternative"
+        ],
+        "profilePicture": "default_profile.png",
+        "posts": [
+            {
+                "title": "I WONT LET THEM",
+                "caption": "I won't let the government track me, so I'm just going to use text to post so that I don't trigger any NSA tracking",
+                "image": "none"
+            },
+            {
+                "title": "this site sucks",
+                "caption": "ugh, I hate it here",
+                "image": "none"
+            },
+            {
+                "title": "FACE REVEAL",
+                "caption": "my followers were asking for it *shrug emoji*",
+                "image": "miguel-bruna-o7gzqjJTkic-unsplash.jpg"
+            }
+        ]
+    }
+}
