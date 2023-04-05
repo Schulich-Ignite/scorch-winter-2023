@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>WebMidi.js Quick Start</title>
+    <script src="https://cdn.jsdelivr.net/npm/webmidi@latest/dist/iife/webmidi.iife.js"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+      background-color: #141414;
+      color:#f0f0f0;
+      font-family: sans-serif;
+    }
+    body{
+      text-align: center;
+    }
+    body *{
+      padding: 3rem;
+    }
+  </style>
+  </head>
+  
+  <body>
+    <h1>WebMidi.js Example</h1>
+    <div id="notes"></div>
+  </body>
+
+  <script>
+    // Enable WEBMIDI.js and trigger the onEnabled() function when ready
+    WebMidi
+      .enable()
+      .then(onEnabled)
+      .catch(err => alert(err));
+
+    mySynth = null
+
+    function onEnabled() {
+
+        if (WebMidi.inputs.length < 1) {
+          document.body.innerHTML+= "No device detected.";
+        } else {
+          WebMidi.inputs.forEach((device, index) => {
+            document.body.innerHTML+= `${index}: ${device.name}  ${device.id} ${device.octaveOffset} <br>`;
+          });
+        }
+        notes = document.getElementById("notes")
+        mySynth = WebMidi.inputs[0]; // Use first midi device available
+        // Register keypress callback function
+        mySynth.channels[1].addListener("noteon", e => {
+          notes.innerHTML = `<p>${e.note.name}  ${e.note.identifier}<p><br>` + notes.innerHTML;
+        });
+      }
+
+  </script>
+
+</html>
