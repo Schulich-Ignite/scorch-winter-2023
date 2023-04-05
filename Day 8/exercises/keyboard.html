@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        :root{
+            color-scheme: light dark;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            box-sizing: border-box;
+            margin:0;
+        }
+        h1{
+            padding:2em;
+        }
+        body{
+            position: relative;
+            height:90vh;
+        }
+    </style>
+</head>
+<body onkeydown="moveCube(event)">
+    <div id="cube" style=" width:150px;
+    height:150px;
+    background-color: white;
+    border-radius: .5em;
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, 50%);"></div>
+</body>
+<script>
+    function moveCube(event){
+        
+        cube = document.getElementById("cube")
+        console.log(event.keyCode)
+        // The movement adds or subtracts 1% to the top or left value of cube
+
+        if (false){// TODO: Figure out trigger
+            // Move up
+            cube.style.top = parseInt(cube.style.top.slice(0,-1)) - 1 + "%"
+        } else if (false){// TODO: Figure out trigger
+            // Move down
+            cube.style.top = parseInt(cube.style.top.slice(0,-1)) + 1 + "%"
+        } else if (false){// TODO: Figure out trigger
+            //Move left
+            cube.style.left = parseInt(cube.style.left.slice(0,-1)) - 1 + "%"
+        } else if (false){// TODO: Figure out trigger
+            //Move right
+            cube.style.left = parseInt(cube.style.left.slice(0,-1)) + 1 + "%"
+        }
+    }
+</script>
+</html>

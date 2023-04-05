@@ -12,18 +12,25 @@
       background-color: #141414;
       color:#f0f0f0;
       font-family: sans-serif;
+      padding:0;
+      margin: 0;
     }
     body{
       text-align: center;
     }
+    
     body *{
-      padding: 3rem;
+      padding: 5px;
+    }
+    h1{
+      padding:1em
     }
   </style>
   </head>
   
   <body>
     <h1>WebMidi.js Example</h1>
+    <div id="info"></div>
     <div id="notes"></div>
   </body>
 
@@ -42,14 +49,14 @@
           document.body.innerHTML+= "No device detected.";
         } else {
           WebMidi.inputs.forEach((device, index) => {
-            document.body.innerHTML+= `${index}: ${device.name}  ${device.id} ${device.octaveOffset} <br>`;
+            document.getElementById("info").innerHTML+= `${index}: ${device.name}  ${device.id} ${device.octaveOffset} <br>`;
           });
         }
         notes = document.getElementById("notes")
         mySynth = WebMidi.inputs[0]; // Use first midi device available
         // Register keypress callback function
         mySynth.channels[1].addListener("noteon", e => {
-          notes.innerHTML = `<p>${e.note.name}  ${e.note.identifier}<p><br>` + notes.innerHTML;
+          notes.innerHTML = `<p>Note: ${e.note.name} Note + Octave: ${e.note.identifier}<p><br>` + notes.innerHTML;
         });
       }
 
